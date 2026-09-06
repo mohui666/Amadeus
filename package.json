@@ -1,0 +1,34 @@
+{
+  "name": "amadeus-kurisu",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "vite build",
+    "start": "node server/index.mjs",
+    "start:local": "node scripts/start-local.mjs",
+    "start:qwen": "node scripts/start-local.mjs --qwen",
+    "start:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/windows-services.ps1 start",
+    "stop:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/windows-services.ps1 stop",
+    "status:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/windows-services.ps1 status",
+    "deploy:tts:modal": ".\\.local\\modal\\venv\\Scripts\\python.exe -X utf8 -m modal deploy scripts/modal-qwen.py",
+    "test": "node --test tests/api.test.mjs tests/codex.test.mjs tests/remote.test.mjs tests/memory-speech.test.mjs tests/smart-memory.test.mjs",
+    "test:ui": "node tests/browser.mjs",
+    "build:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-android.ps1"
+  },
+  "dependencies": {
+    "lucide-react": "1.31.0",
+    "opencc-js": "^1.4.2",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "@vitejs/plugin-react": "6.0.2",
+    "vite": "8.2.2"
+  }
+}

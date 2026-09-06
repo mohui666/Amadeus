@@ -1,0 +1,15 @@
+{
+  "tool": "image_gen.imagegen (built-in image generation; no independently selectable imagen model)",
+  "reference": "public/assets/kurisu/expressions-v2/{expression}1.png",
+  "prompts": {
+    "skeptical": "Edit this single Kurisu visual novel sprite into its natural closed-eye blink frame. Change ONLY her open eyes to gently closed eyelids with delicate hand-drawn anime eyelashes, anatomically natural and aligned with the original eye corners. Retain the exact skeptical eyebrows, closed mouth, face outline, nose, bangs, head orientation, hair, clothing, body silhouette, shading, colors, scale, position and full portrait framing of the reference. The face stays straight forward, no tilt or deformation. This is one animation frame and must match the input sprite. Output ONE complete portrait sprite, not a sheet or comparison. Transparent PNG background, not a painted checkerboard. Do not add any elements or text. Preserve all pixels outside the eye area as closely as possible.",
+    "tender": "Edit this single Kurisu visual novel sprite into its natural closed-eye blink frame. Change ONLY her open eyes to gently closed eyelids with delicate hand-drawn anime eyelashes, anatomically natural and aligned with the original eye corners. Retain the exact tender eyebrows, small warm closed-mouth smile, face outline, nose, bangs, head orientation, hair, clothing, body silhouette, shading, colors, scale, position and full portrait framing of the reference. The face stays straight forward, no tilt or deformation. This is one animation frame and must match the input sprite. Output ONE complete portrait sprite, not a sheet or comparison. Transparent PNG background, not a painted checkerboard. Do not add any elements or text. Preserve all pixels outside the eye area as closely as possible. Clean up accidental transparent horizontal lines in the lab coat.",
+    "amused": "Edit this single Kurisu visual novel sprite into its natural closed-eye blink frame. Change ONLY her open eyes to gently closed eyelids with delicate hand-drawn anime eyelashes, anatomically natural and aligned with the original eye corners. Retain the exact amused eyebrows, small wry closed-mouth smile, face outline, nose, bangs, head orientation, hair, clothing, body silhouette, shading, colors, scale, position and full portrait framing of the reference. The face stays straight forward, no tilt or deformation. This is one animation frame and must match the input sprite. Output ONE complete portrait sprite, not a sheet or comparison. Transparent PNG background, not a painted checkerboard. Do not add any elements or text. Preserve all pixels outside the eye area as closely as possible."
+  },
+  "outputs": {
+    "skeptical": "exec-b494330f-0420-4d4c-bcd3-54f74834a794.png",
+    "tender": "exec-7dbe3d22-5ea5-434a-9683-fbc3c2cdf3a3.png",
+    "amused": "exec-f811ef44-b198-4334-b6ae-d4d6cd5b0ef3.png"
+  },
+  "processing": "scripts/prepare-generated-blinks.py: background removal and uniform whole-portrait fit only"
+}

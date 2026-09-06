@@ -1,0 +1,78 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "processing": "Background alpha cleanup, whole-sprite uniform scale/translation against original hair/clothing, and smooth Lab lightness and color calibration to the original excluding eyes/mouth; no compositing.",
+  "frames": [
+    {
+      "name": "skeptical1",
+      "source": ".local/expression-sources/exec-a6d0a239-5fbc-4d15-aaeb-6ad8032fdec5.png",
+      "reference": "public/assets/kurisu/kurisu_normal1.png",
+      "prompt": "Edit target: the provided ORIGINAL Kurisu visual-novel sprite. Produce one skeptical expression variant. Change ONLY the facial expression: a subtly questioning gaze, one eyebrow slightly raised, restrained doubtful closed mouth. PRESERVE the original image everywhere else: exact original face geometry, head angle, hair strands and silhouette, white lab coat and all folds, collar, red tie, button, shoulders, body silhouette, painterly shading, colors, camera, scale, placement and crop. The full ORIGINAL visible clothing must remain intact down to the exact bottom canvas edge, including both lower corners. Do not redesign, beautify, tilt, reposition, shrink, extend the pose or crop any clothing. One complete sprite on the same portrait canvas, no sheet, no text, no comparison. Genuine transparent PNG outside the original silhouette; never draw a checkerboard. Treat this as a tightly localized facial-expression edit of the original, not a redraw in a similar style."
+    },
+    {
+      "name": "skeptical2",
+      "source": ".local/expression-sources/exec-7a5974b0-1de7-4d75-90aa-b4fe4e64dcf7.png",
+      "reference": "public/assets/kurisu/kurisu_normal2.png",
+      "prompt": "Edit ONLY facial expression of the provided ORIGINAL Kurisu talking sprite: skeptical questioning eyes with one eyebrow slightly raised. Retain the original small OPEN talking mouth opening, subtly adapted to this emotion. All other original pixels should remain unchanged: exact face shape, nose, head orientation, hair strands, silhouette, body, white coat and folds, collar, red tie, button, painterly anime shading and colors, scale, position and original portrait framing. Preserve all original clothing down to the exact bottom edge, both lower corners intact. No crop, shift, pose change, redraw of clothing/hair, sheet or text. Output ONE complete sprite with genuine transparent background, no painted checkerboard. A localized expression edit of the original, not reinterpretation."
+    },
+    {
+      "name": "skeptical3",
+      "source": ".local/expression-sources/exec-0fb833b1-62e1-42fd-a472-3326bd2e5fb1.png",
+      "reference": "public/assets/kurisu/kurisu_normal3.png",
+      "prompt": "Edit ONLY facial expression of the provided ORIGINAL Kurisu talking sprite: skeptical questioning eyes with one eyebrow slightly raised. Retain the original larger OPEN talking mouth opening, subtly adapted to this emotion. All other original pixels should remain unchanged: exact face shape, nose, head orientation, hair strands, silhouette, body, white coat and folds, collar, red tie, button, painterly anime shading and colors, scale, position and original portrait framing. Preserve all original clothing down to the exact bottom edge, both lower corners intact. No crop, shift, pose change, redraw of clothing/hair, sheet or text. Output ONE complete sprite with genuine transparent background, no painted checkerboard. A localized expression edit of the original, not reinterpretation."
+    },
+    {
+      "name": "skeptical4",
+      "source": ".local/expression-sources/exec-ee61588d-81b4-4fb5-858d-34e560d7d682.png",
+      "reference": "public/assets/kurisu/kurisu_normal1.png",
+      "prompt": "Edit ONLY the facial expression of the provided ORIGINAL Kurisu sprite to a natural blink while skeptical: both eyes gently closed with delicate anime eyelids, skeptical eyebrows, restrained doubtful CLOSED mouth. Keep the face straight and anatomically identical. Preserve original hair, bangs, face outline, nose, body, clothing, all coat folds, collar, tie, button, painterly shading, colors, scale, position and canvas framing exactly. Keep the entire original coat visible to the bottom edge with complete left and right lower corners. Do not redraw or reinterpret the portrait, crop clothing, shift the figure or create a sheet. One complete portrait sprite. True transparent background outside the original silhouette; no painted checkerboard, text or props."
+    },
+    {
+      "name": "tender1",
+      "source": ".local/expression-sources/exec-1236f18c-4247-429b-9d3a-aaef83039dd6.png",
+      "reference": "public/assets/kurisu/kurisu_normal1.png",
+      "prompt": "Make a MINIMAL edit of the provided original Kurisu sprite: change only her eyebrows/eyes to a soft reassuring expression and her closed mouth to a tiny gentle smile. Everything outside the face stays exactly as the original. The original body is perfectly centered and its lower coat fills the bottom-left and bottom-right edges of the portrait: keep those edges exactly. Do not move the character sideways or vertically, do not change scale, do not widen or narrow head/body, do not change canvas/camera, do not redraw the clothes or hair. Keep the original exact painterly anime lines and shading. One same-framing portrait sprite. True transparent alpha outside the original silhouette, no checkerboard."
+    },
+    {
+      "name": "tender2",
+      "source": ".local/expression-sources/exec-1b673235-85c3-4afe-9557-d5eca34a44fd.png",
+      "reference": "public/assets/kurisu/kurisu_normal2.png",
+      "prompt": "Edit ONLY facial expression of the provided ORIGINAL Kurisu talking sprite: softened kind eyes and eyebrows and a reassuring manner. Retain the original small OPEN talking mouth opening, subtly adapted to this emotion. All other original pixels should remain unchanged: exact face shape, nose, head orientation, hair strands, silhouette, body, white coat and folds, collar, red tie, button, painterly anime shading and colors, scale, position and original portrait framing. Preserve all original clothing down to the exact bottom edge, both lower corners intact. No crop, shift, pose change, redraw of clothing/hair, sheet or text. Output ONE complete sprite with genuine transparent background, no painted checkerboard. A localized expression edit of the original, not reinterpretation."
+    },
+    {
+      "name": "tender3",
+      "source": ".local/expression-sources/exec-b76fe1dd-e936-45fd-8d2b-229c891d2281.png",
+      "reference": "public/assets/kurisu/kurisu_normal3.png",
+      "prompt": "Edit ONLY facial expression of the provided ORIGINAL Kurisu talking sprite: softened kind eyes and eyebrows and a reassuring manner. Retain the original larger OPEN talking mouth opening, subtly adapted to this emotion. All other original pixels should remain unchanged: exact face shape, nose, head orientation, hair strands, silhouette, body, white coat and folds, collar, red tie, button, painterly anime shading and colors, scale, position and original portrait framing. Preserve all original clothing down to the exact bottom edge, both lower corners intact. No crop, shift, pose change, redraw of clothing/hair, sheet or text. Output ONE complete sprite with genuine transparent background, no painted checkerboard. A localized expression edit of the original, not reinterpretation."
+    },
+    {
+      "name": "tender4",
+      "source": ".local/expression-sources/exec-e23adbd2-b44e-4af2-81cc-c7270112b3ba.png",
+      "reference": "public/assets/kurisu/kurisu_normal1.png",
+      "prompt": "Edit ONLY the facial expression of the provided ORIGINAL Kurisu sprite to a natural tender blink: both eyes gently closed with delicate anime eyelids, softened eyebrows and a very small reassuring CLOSED-mouth smile, no blush. Preserve original face outline, nose, head angle, exact hair, bangs, body, clothing, all coat folds, collar, tie, button, painterly shading, colors, scale, position and original canvas framing exactly. Keep entire original coat visible to bottom edge, complete lower corners. No redesign, no cropping or repositioning. Output ONE complete sprite, genuine transparent background, no checkerboard or text. Only facial-expression edit of original."
+    },
+    {
+      "name": "amused1",
+      "source": ".local/expression-sources/exec-3e56cfaa-888e-4b0f-8b61-f0c260ced821.png",
+      "reference": "public/assets/kurisu/kurisu_normal1.png",
+      "prompt": "Edit target: the provided ORIGINAL Kurisu visual-novel sprite. Produce one amused expression variant: slightly narrowed amused eyes and a restrained wry teasing CLOSED-mouth smile, not evil, no blush. Change ONLY facial expression. Preserve every other original feature: face geometry, head orientation, exact hair and silhouette, painterly anime rendering and colors, white lab coat, all folds, collar, red tie, button, shoulders, entire body outline, scale, position and framing. Keep ALL original visible clothing down to the exact bottom edge including both lower corners. Do not crop, shift, shrink, repaint hair or change clothing. Output one complete portrait sprite matching original canvas, no atlas or comparison or text. Genuine transparent PNG outside original silhouette, never painted checkerboard. A localized expression edit, not a reinterpretation."
+    },
+    {
+      "name": "amused2",
+      "source": ".local/expression-sources/exec-2e06745a-a1af-4c78-a2c4-aea195dc66a9.png",
+      "reference": "public/assets/kurisu/kurisu_normal2.png",
+      "prompt": "Edit ONLY facial expression of the provided ORIGINAL Kurisu talking sprite: slightly narrowed amused eyes and a restrained teasing expression. Retain the original small OPEN talking mouth opening, subtly adapted to this emotion. All other original pixels should remain unchanged: exact face shape, nose, head orientation, hair strands, silhouette, body, white coat and folds, collar, red tie, button, painterly anime shading and colors, scale, position and original portrait framing. Preserve all original clothing down to the exact bottom edge, both lower corners intact. No crop, shift, pose change, redraw of clothing/hair, sheet or text. Output ONE complete sprite with genuine transparent background, no painted checkerboard. A localized expression edit of the original, not reinterpretation."
+    },
+    {
+      "name": "amused3",
+      "source": ".local/expression-sources/exec-0024af45-3a87-4f0f-810e-207236e95d57.png",
+      "reference": "public/assets/kurisu/kurisu_normal3.png",
+      "prompt": "Make a MINIMAL edit of the provided original Kurisu talking sprite: change only her eyebrows/eyes to restrained teasing amusement, keep the same open speaking mouth size with a slightly amused curve. Everything outside the face stays exactly as the original. The original body is perfectly centered and its lower coat fills the bottom-left and bottom-right edges of the portrait: keep those edges exactly. Do not move the character sideways or vertically, do not change scale, do not widen or narrow head/body, do not change canvas/camera, do not redraw clothes or hair. Keep original painterly anime lines and shading. One same-framing portrait sprite. True transparent alpha outside original silhouette, no checkerboard."
+    },
+    {
+      "name": "amused4",
+      "source": ".local/expression-sources/exec-c57bcf53-9c27-485c-bcef-644f5f258aa7.png",
+      "reference": "public/assets/kurisu/kurisu_normal1.png",
+      "prompt": "Edit ONLY the facial expression of the provided ORIGINAL Kurisu sprite to a natural amused blink: both eyes gently closed with delicate anime eyelids, amused eyebrows and a small wry teasing CLOSED-mouth smile, no blush. Preserve original face outline, nose, head angle, exact hair, bangs, body, clothing, all coat folds, collar, tie, button, painterly shading, colors, scale, position and original canvas framing exactly. Keep entire original coat visible to bottom edge, complete lower corners. No redesign, no cropping or repositioning. Output ONE complete sprite, genuine transparent background, no checkerboard or text. Only facial-expression edit of original."
+    }
+  ]
+}

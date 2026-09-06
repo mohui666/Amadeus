@@ -1,0 +1,909 @@
+{
+  "sourceRepositories": [
+    "https://github.com/Yink/Amadeus",
+    "https://github.com/senkuuuuu/Amadeus"
+  ],
+  "assets": [
+    {
+      "file": "/assets/interface/amadeus_icon_smaller.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/amadeus_icon_smaller.png",
+      "bytes": 37487,
+      "width": 438,
+      "height": 306,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/bg1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/bg1.png",
+      "bytes": 611882,
+      "width": 1477,
+      "height": 2580,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/cancel_select.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/cancel_select.png",
+      "bytes": 14743,
+      "width": 440,
+      "height": 100,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/cancel_unselect.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/cancel_unselect.png",
+      "bytes": 11296,
+      "width": 440,
+      "height": 100,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/connect_select.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/connect_select.png",
+      "bytes": 15161,
+      "width": 440,
+      "height": 100,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/connect_unselect.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/connect_unselect.png",
+      "bytes": 12301,
+      "width": 440,
+      "height": 100,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/incoming_call.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/incoming_call.png",
+      "bytes": 22302,
+      "width": 96,
+      "height": 96,
+      "pngColorType": 6
+    },
+    {
+      "file": "/assets/interface/logo1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo1.png",
+      "bytes": 2985,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo10.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo10.png",
+      "bytes": 17393,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo11.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo11.png",
+      "bytes": 20034,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo12.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo12.png",
+      "bytes": 20034,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo13.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo13.png",
+      "bytes": 21003,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo14.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo14.png",
+      "bytes": 22191,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo15.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo15.png",
+      "bytes": 23969,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo16.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo16.png",
+      "bytes": 24161,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo17.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo17.png",
+      "bytes": 29474,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo18.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo18.png",
+      "bytes": 31128,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo19.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo19.png",
+      "bytes": 37246,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo2.png",
+      "bytes": 8118,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo20.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo20.png",
+      "bytes": 41659,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo21.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo21.png",
+      "bytes": 42196,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo22.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo22.png",
+      "bytes": 46857,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo23.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo23.png",
+      "bytes": 52388,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo24.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo24.png",
+      "bytes": 53426,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo25.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo25.png",
+      "bytes": 54558,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo26.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo26.png",
+      "bytes": 57248,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo27.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo27.png",
+      "bytes": 56203,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo28.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo28.png",
+      "bytes": 56173,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo29.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo29.png",
+      "bytes": 56395,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo3.png",
+      "bytes": 10021,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo30.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo30.png",
+      "bytes": 56628,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo31.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo31.png",
+      "bytes": 57067,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo32.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo32.png",
+      "bytes": 101382,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo33.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo33.png",
+      "bytes": 140498,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo34.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo34.png",
+      "bytes": 140526,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo35.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo35.png",
+      "bytes": 149001,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo36.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo36.png",
+      "bytes": 144057,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo37.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo37.png",
+      "bytes": 136655,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo38.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo38.png",
+      "bytes": 110792,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo39.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo39.png",
+      "bytes": 91569,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo4.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo4.png",
+      "bytes": 12499,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo5.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo5.png",
+      "bytes": 14142,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo6.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo6.png",
+      "bytes": 17282,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo7.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo7.png",
+      "bytes": 15809,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo8.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo8.png",
+      "bytes": 18417,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/logo9.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxhdpi/logo9.png",
+      "bytes": 16717,
+      "width": 920,
+      "height": 800,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/interface/subtitle_frame_big.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/subtitle_frame_big.png",
+      "bytes": 403859,
+      "width": 2564,
+      "height": 430,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_angry1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_angry1.png",
+      "bytes": 557281,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_angry2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_angry2.png",
+      "bytes": 505098,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_angry3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_angry3.png",
+      "bytes": 570462,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_annoyed1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_annoyed1.png",
+      "bytes": 558775,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_annoyed2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_annoyed2.png",
+      "bytes": 569204,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_annoyed3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_annoyed3.png",
+      "bytes": 516774,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_blush1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_blush1.png",
+      "bytes": 559607,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_blush2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_blush2.png",
+      "bytes": 508614,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_blush3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_blush3.png",
+      "bytes": 517907,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_disappointed1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_disappointed1.png",
+      "bytes": 564690,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_disappointed2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_disappointed2.png",
+      "bytes": 565004,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_disappointed3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_disappointed3.png",
+      "bytes": 512432,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_eyes_closed1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_eyes_closed1.png",
+      "bytes": 558799,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_eyes_closed2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_eyes_closed2.png",
+      "bytes": 522326,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_eyes_closed3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_eyes_closed3.png",
+      "bytes": 509384,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_happy1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_happy1.png",
+      "bytes": 576402,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_happy2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_happy2.png",
+      "bytes": 520732,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_happy3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_happy3.png",
+      "bytes": 499415,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_indifferent1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_indifferent1.png",
+      "bytes": 568707,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_indifferent2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_indifferent2.png",
+      "bytes": 570683,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_indifferent3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_indifferent3.png",
+      "bytes": 568501,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_normal1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_normal1.png",
+      "bytes": 561040,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_normal2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_normal2.png",
+      "bytes": 552331,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_normal3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_normal3.png",
+      "bytes": 565032,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_pissed1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_pissed1.png",
+      "bytes": 559625,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_pissed2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_pissed2.png",
+      "bytes": 512805,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_pissed3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_pissed3.png",
+      "bytes": 563475,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sad1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sad1.png",
+      "bytes": 508510,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sad2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sad2.png",
+      "bytes": 555207,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sad3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sad3.png",
+      "bytes": 565174,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_side1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_side1.png",
+      "bytes": 508946,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_side2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_side2.png",
+      "bytes": 507579,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_side3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_side3.png",
+      "bytes": 559937,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_angry1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_angry1.png",
+      "bytes": 569661,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_angry2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_angry2.png",
+      "bytes": 586938,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_angry3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_angry3.png",
+      "bytes": 573913,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_blush1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_blush1.png",
+      "bytes": 572161,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_blush2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_blush2.png",
+      "bytes": 570119,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_blush3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_blush3.png",
+      "bytes": 572876,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_eyes_closed1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_eyes_closed1.png",
+      "bytes": 577511,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_eyes_closed2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_eyes_closed2.png",
+      "bytes": 582230,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_eyes_closed3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_eyes_closed3.png",
+      "bytes": 572279,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_pleasant1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_pleasant1.png",
+      "bytes": 580230,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_pleasant2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_pleasant2.png",
+      "bytes": 571381,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_pleasant3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_pleasant3.png",
+      "bytes": 562423,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_surprised1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_surprised1.png",
+      "bytes": 589202,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_surprised2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_surprised2.png",
+      "bytes": 568403,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_surprised3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_surprised3.png",
+      "bytes": 595199,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_thinking1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_thinking1.png",
+      "bytes": 574326,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_thinking2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_thinking2.png",
+      "bytes": 568875,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_thinking3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_thinking3.png",
+      "bytes": 587398,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_worried1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_worried1.png",
+      "bytes": 558382,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_worried2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_worried2.png",
+      "bytes": 564941,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_sided_worried3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_sided_worried3.png",
+      "bytes": 575905,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_winking1.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_winking1.png",
+      "bytes": 560182,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_winking2.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_winking2.png",
+      "bytes": 564260,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/kurisu/kurisu_winking3.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/drawable-xxxhdpi/kurisu_winking3.png",
+      "bytes": 571400,
+      "width": 1213,
+      "height": 2160,
+      "pngColorType": 3
+    },
+    {
+      "file": "/assets/reference/desktop-screen.jpg",
+      "source": "https://github.com/senkuuuuu/Amadeus/blob/main/sneak_peeks/screenshot_3.jpg",
+      "bytes": 67086
+    },
+    {
+      "file": "/assets/reference/mobile-screen.png",
+      "source": "https://github.com/Yink/Amadeus/blob/master/Screenshots/Kurisuscreen.png",
+      "bytes": 3014251,
+      "width": 1370,
+      "height": 2446,
+      "pngColorType": 6
+    },
+    {
+      "file": "/assets/voice/ask_me_whatever.ogg",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/raw/ask_me_whatever.ogg",
+      "bytes": 114976,
+      "durationSeconds": 4.416,
+      "sampleRate": 48000
+    },
+    {
+      "file": "/assets/voice/dont_add_tina.ogg",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/raw/dont_add_tina.ogg",
+      "bytes": 16359,
+      "durationSeconds": 0.928,
+      "sampleRate": 44100
+    },
+    {
+      "file": "/assets/voice/hello.ogg",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/raw/hello.ogg",
+      "bytes": 8357,
+      "durationSeconds": 0.629,
+      "sampleRate": 22050
+    },
+    {
+      "file": "/assets/voice/humans_software.ogg",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/raw/humans_software.ogg",
+      "bytes": 136175,
+      "durationSeconds": 5.494,
+      "sampleRate": 48000
+    },
+    {
+      "file": "/assets/voice/memory_complex.ogg",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/raw/memory_complex.ogg",
+      "bytes": 107849,
+      "durationSeconds": 4.22,
+      "sampleRate": 48000
+    },
+    {
+      "file": "/assets/voice/ok.ogg",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/raw/ok.ogg",
+      "bytes": 18384,
+      "durationSeconds": 0.611,
+      "sampleRate": 48000
+    },
+    {
+      "file": "/assets/voice/pleased_to_meet_you.ogg",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/raw/pleased_to_meet_you.ogg",
+      "bytes": 90710,
+      "durationSeconds": 7.544,
+      "sampleRate": 44100
+    },
+    {
+      "file": "/assets/voice/tone.ogg",
+      "source": "https://github.com/Yink/Amadeus/blob/master/app/src/main/res/raw/tone.ogg",
+      "bytes": 15022,
+      "durationSeconds": 1.129,
+      "sampleRate": 44100
+    }
+  ]
+}

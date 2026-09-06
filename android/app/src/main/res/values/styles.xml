@@ -1,0 +1,12 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowBackground">#090b0c</item>
+        <item name="android:colorAccent">#c6a466</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowSplashScreenBackground">#090b0c</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/amadeus</item>
+    </style>
+</resources>

@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.env
+test-results/
+.local/
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+artifacts/
+
+# Local credentials, generated records and machine-specific instructions
+.env.*
+!.env.example
+*.log
+__pycache__/
+*.py[cod]
+*.jks
+*.keystore
+AGENTS.md
+public/generated-voice/
+docs/红莉栖完整对话语料_交给Pro.md
+docs/expression-original-prompts.json
