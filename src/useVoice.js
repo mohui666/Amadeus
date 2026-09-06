@@ -2,9 +2,10 @@ import { useRef, useState, useEffect } from 'react';
 import { readJsonResponse, request, fileDataUrl } from './api.js';
 import { simplifyChinese } from './config.js';
 import { phone } from './native.js';
-import { createSpeechStream, sentenceRanges } from './speechStream.js';
+import { createSpeechStream, sentenceRanges, sentenceIndexAt } from './speechStream.js';
 import { readAudio, saveAudio } from './audioStore.js';
 import { emotionAt, segmentExpressions } from './expressions.js';
+import { speechGain } from './speechLevel.js';
 
 export function useVoice(config, onRecognized, onError) {
   const onTranscript = text => onRecognized(config.language.startsWith('zh') ? simplifyChinese(text) : text);
@@ -65,45 +66,27 @@ export function useVoice(config, onRecognized, onError) {
     playbackEnd.current = null;
   }
 
-  async function play(url, revoke = false, waitForEnd = false, sentence = null) {
+  async function play(url, revoke = false, waitForEnd = false, sentence = null, speechBlob = null) {
     stopPlayback();
     const id = generation.current;
     const ended = waitForEnd ? new Promise((resolve, reject) => { playbackEnd.current = { resolve, reject }; }) : null;
     ended?.catch(() => {});
     const player = new Audio(url);
-    // Generated audio has no word timestamps; place inline cues proportionally
-    // within this sentence. Native/system speech uses actual range events below.
+    // Generated audio has no word timestamps; estimate text progress across the
+    // complete clip. Native/system speech uses actual range events below.
+    const showProgress = offset => {
+      showExpression(sentence.cues, offset, sentence.replyId);
+      const index = sentence.sentenceIndex + sentenceIndexAt(sentence.text, offset);
+      setActiveSentence(previous => previous?.replyId === sentence.replyId && previous.index === index
+        ? previous : { replyId: sentence.replyId, index });
+    };
     player.ontimeupdate = () => {
       if (id === generation.current && sentence && player.duration > 0) {
-        showExpression(sentence.cues, player.currentTime / player.duration * sentence.text.length, sentence.replyId);
+        showProgress(player.currentTime / player.duration * sentence.text.length);
       }
     };
     audio.current = player;
     if (revoke) objectUrl.current = url;
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (AudioContext) {
-      const ctx = new AudioContext();
-      context.current = ctx;
-      const analyser = ctx.createAnalyser();
-      analyser.fftSize = 256;
-      ctx.createMediaElementSource(player).connect(analyser);
-      analyser.connect(ctx.destination);
-      await ctx.resume();
-      if (id !== generation.current) return;
-      const values = new Uint8Array(analyser.fftSize);
-      let last = 0;
-      const update = time => {
-        if (id !== generation.current) return;
-        if (time - last > 100) {
-          analyser.getByteTimeDomainData(values);
-          const volume = Math.sqrt(values.reduce((sum, value) => sum + ((value - 128) / 128) ** 2, 0) / values.length);
-          setMouth(volume > 0.14 ? 3 : volume > 0.025 ? 2 : 1);
-          last = time;
-        }
-        frame.current = requestAnimationFrame(update);
-      };
-      frame.current = requestAnimationFrame(update);
-    }
     const release = () => { if (revoke) URL.revokeObjectURL(url); };
     player.onended = () => { if (id === generation.current) stopPlayback(); release(); };
     player.onerror = () => {
@@ -114,7 +97,42 @@ export function useVoice(config, onRecognized, onError) {
       }
       release();
     };
-    try { if (id !== generation.current) return; await player.play(); if (id === generation.current) { setSpeaking(true); setActiveSentence(sentence); if (sentence) showExpression(sentence.cues, 0, sentence.replyId); } }
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) {
+        const ctx = new AudioContext();
+        context.current = ctx;
+        const analyser = ctx.createAnalyser();
+        analyser.fftSize = 256;
+        await ctx.resume();
+        if (id !== generation.current) return ended;
+        const gain = ctx.createGain();
+        if (speechBlob) {
+          const decoded = await ctx.decodeAudioData(await speechBlob.arrayBuffer());
+          if (id !== generation.current) return ended;
+          gain.gain.value = speechGain(decoded);
+        }
+        ctx.createMediaElementSource(player).connect(gain);
+        gain.connect(analyser);
+        analyser.connect(ctx.destination);
+        const values = new Uint8Array(analyser.fftSize);
+        let last = 0;
+        const update = time => {
+          if (id !== generation.current) return;
+          if (time - last > 100) {
+            analyser.getByteTimeDomainData(values);
+            const volume = Math.sqrt(values.reduce((sum, value) => sum + ((value - 128) / 128) ** 2, 0) / values.length);
+            setMouth(volume > 0.14 ? 3 : volume > 0.025 ? 2 : 1);
+            last = time;
+          }
+          frame.current = requestAnimationFrame(update);
+        };
+        frame.current = requestAnimationFrame(update);
+      }
+      if (id !== generation.current) return ended;
+      await player.play();
+      if (id === generation.current) { setSpeaking(true); if (sentence) showProgress(0); }
+    }
     catch (error) { release(); if (id === generation.current) { stopPlayback(); throw error; } }
     if (ended) await ended;
   }
@@ -156,7 +174,7 @@ export function useVoice(config, onRecognized, onError) {
         }
         finally { if (!signal.aborted) setSynthesizing(false); }
       },
-      play: (blob, segment) => play(URL.createObjectURL(blob), true, true, { ...segment, replyId }),
+      play: (blob, segment) => play(URL.createObjectURL(blob), true, true, { ...segment, replyId }, blob),
       stop,
       onError: message => onError(`朗读失败：${message}`),
     });
@@ -179,11 +197,12 @@ export function useVoice(config, onRecognized, onError) {
     speechQueue.current = { cancel: () => replay.abort() };
     const saved = replyId ? await readAudio(replyId) : null;
     replay.signal.throwIfAborted();
-    if (saved) saved.segments = saved.segments.map(segment => ({ ...segment, cues: segmentExpressions(cues, segment.start, segment.end) }));
+    if (saved) saved.segments = saved.segments.map(segment => ({ ...segment,
+      sentenceIndex: sentenceIndexAt(text, segment.start), cues: segmentExpressions(cues, segment.start, segment.end) }));
     if (saved?.complete) {
       for (const [index, segment] of saved.segments.entries()) {
         replay.signal.throwIfAborted();
-        await play(URL.createObjectURL(segment.blob), true, true, { ...segment, blob: undefined, index, replyId });
+        await play(URL.createObjectURL(segment.blob), true, true, { ...segment, blob: undefined, index, replyId }, segment.blob);
       }
       return;
     }
@@ -191,7 +210,7 @@ export function useVoice(config, onRecognized, onError) {
       if (['browser', 'off'].includes(config.tts.provider)) {
         for (const [index, segment] of saved.segments.entries()) {
           replay.signal.throwIfAborted();
-          await play(URL.createObjectURL(segment.blob), true, true, { ...segment, blob: undefined, index, replyId });
+          await play(URL.createObjectURL(segment.blob), true, true, { ...segment, blob: undefined, index, replyId }, segment.blob);
         }
         onError('已播放保存的语音片段；这条回复的语音尚未生成完整。');
         return;

@@ -418,11 +418,12 @@ try {
   await native.page.locator('.call-bottom').evaluate(element => { element.scrollTop = 0; });
   await native.page.screenshot({ path: resolve(outputDir, 'native-call-fixed.png') });
   native.state.speechFailure = false;
+  native.state.speechSeconds = 8;
   const chatsBeforeReplay = native.state.chats.length;
   await native.page.getByRole('button', { name: '重播当前回复' }).click();
   await expect(native.page.getByRole('alert')).toHaveCount(0);
-  await expect.poll(() => native.state.speeches.length).toBe(4);
-  assert.equal(native.state.speeches.slice(1).map(request => request.text).join(''), native.state.reply);
+  await expect.poll(() => native.state.speeches.length).toBe(2);
+  assert.equal(native.state.speeches[1].text, native.state.reply, 'one request must contain the complete reply');
   assert.equal(native.state.chats.length, chatsBeforeReplay);
   assert.equal(native.state.modelRequests, 0);
   await expect(native.page.locator('.reading-sentence')).toHaveCount(0);
@@ -438,7 +439,7 @@ try {
   await expect(native.page.locator('.mobile-panel .reading-sentence')).toContainText('我是牧濑红莉栖');
   await expect(native.page.locator('.mobile-panel .reading-sentence')).toContainText('你连续叫了我几次');
   await expect(native.page.locator('.mobile-panel .reading-sentence')).toHaveCount(0);
-  assert.equal(native.state.speeches.length, 4, 'native saved sentences replay offline without synthesis');
+  assert.equal(native.state.speeches.length, 2, 'native saved whole reply replays offline without synthesis');
   assert.deepEqual(native.errors, []);
   await native.context.close();
   record({ check: 'Android bridge fixture: three manual protocols, unclipped selects, portrait separation, speech failure and replay without another chat request', status: 'PASS' });

@@ -1,10 +1,37 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buildContext, readMemories, persistMemories, rememberTurn, mergeFacts } from '../src/memory.js';
-import { createSpeechStream, sentenceRanges } from '../src/speechStream.js';
+import { createSpeechStream, sentenceRanges, sentenceIndexAt } from '../src/speechStream.js';
 import { systemPrompt } from '../server/providers.mjs';
 import { cleanReply, spokenReply, getEmotion } from '../src/config.js';
 import { emotionAt } from '../src/expressions.js';
+import { speechGain } from '../src/speechLevel.js';
+
+function speechBuffer(amplitude, { padding = 0, channels = 1 } = {}) {
+  const sampleRate = 24000, length = sampleRate * (1 + padding);
+  const samples = Float32Array.from({ length }, (_, index) => index < sampleRate
+    ? amplitude * (index < sampleRate / 2 ? 0.5 : 1) * Math.sin(2 * Math.PI * 300 * index / sampleRate) : 0);
+  return { sampleRate, length, numberOfChannels: channels, getChannelData: () => samples };
+}
+
+test('sentence leveling matches quiet/loud speech while preserving emphasis and ignoring pauses', () => {
+  const quiet = speechBuffer(0.05), loud = speechBuffer(0.4);
+  const quietGain = speechGain(quiet), loudGain = speechGain(loud);
+  assert.ok(Math.abs(20 * Math.log10(quietGain * 0.05 / (loudGain * 0.4))) < 0.1);
+  assert.equal(speechGain(speechBuffer(0.05, { padding: 4 })), quietGain, 'trailing silence must not increase gain');
+  assert.ok(Math.abs(speechGain(speechBuffer(0.05, { channels: 2 })) - quietGain) < 1e-8, 'duplicate stereo channels keep the same level');
+  const samples = loud.getChannelData(0);
+  const energy = (start, end) => samples.slice(start, end).reduce((sum, sample) => sum + (sample * loudGain) ** 2, 0);
+  assert.ok(Math.abs(energy(12000, 24000) / energy(0, 12000) - 4) < 0.001, 'the louder half retains its 6 dB emphasis');
+});
+
+test('sentence leveling leaves silence alone and bounds amplification without clipping sample peaks', () => {
+  assert.equal(speechGain(speechBuffer(0)), 1);
+  assert.ok(speechGain(speechBuffer(0.003)) <= 10 ** (12 / 20));
+  const transient = speechBuffer(0.02);
+  transient.getChannelData(0)[12000] = 0.99;
+  assert.ok(speechGain(transient) * 0.99 <= 10 ** (-1 / 20) + 1e-7);
+});
 
 test('inline expressions are hidden from captions, speech and partial streaming markers', () => {
   const reply = '[emotion:neutral]\n等等，[emotion:skeptical]还缺证据。[emotion:tender]一起核对吧。\n[speech:ja]\n待って、[emotion:skeptical]証拠が足りない。[emotion:tender]一緒に確かめよう。';
@@ -31,9 +58,9 @@ test('mid-sentence expression cues stay attached to ordered speech without split
   queue.update('[emotion:neutral]等等，[emotion:skeptical]还缺证据。[emotion:tender]一起');
   queue.finish('[emotion:neutral]等等，[emotion:skeptical]还缺证据。[emotion:tender]一起核对吧。');
   await queue.done();
-  assert.deepEqual(requests, ['等等，还缺证据。', '一起核对吧。']);
-  assert.deepEqual(segments[0].cues, [{ offset: 0, emotion: 'neutral' }, { offset: 3, emotion: 'skeptical' }]);
-  assert.deepEqual(segments[1].cues, [{ offset: 0, emotion: 'tender' }]);
+  assert.deepEqual(requests, ['等等，还缺证据。一起核对吧。']);
+  assert.deepEqual(segments[0].cues, [{ offset: 0, emotion: 'neutral' }, { offset: 3, emotion: 'skeptical' }, { offset: 8, emotion: 'tender' }]);
+  assert.equal(segments[0].sentenceIndex, 0);
 });
 
 test('local memories survive a new conversation, retrieve old facts and do not store settings or images', () => {
@@ -85,27 +112,29 @@ test('streamed punctuation and quotes keep stable boundaries; partial replay pre
   queue.update('真的！！” 下一句。');
   queue.finish('真的！！” 下一句。');
   await queue.done();
-  assert.deepEqual(synthesized, ['真的！！”', '下一句。']);
-  assert.deepEqual(played.map(s => s.index), [0, 1]);
+  assert.deepEqual(synthesized, ['真的！！” 下一句。']);
+  assert.deepEqual(played.map(s => s.index), [0]);
   assert.deepEqual(sentenceRanges('真的！！” 下一句。').map(s => s.text), ['真的！！”', ' 下一句。']);
   const saved = [{ text: '真的！', language: 'zh', blob: 'saved-1' }, { text: '！”', language: 'zh', blob: 'saved-2' }];
-  const replayed = [], requested = [];
+  const replayed = [], requested = [], sentenceIndices = [];
   const replay = createSpeechStream({ mode: 'zh', savedSegments: saved,
     synthesize: async (text, language, signal, segment) => {
       if (saved[segment.index]?.text === text) return saved[segment.index].blob;
       requested.push(text); return 'new-tail';
-    }, play: async blob => replayed.push(blob), stop() {}, onError: assert.fail,
+    }, play: async (blob, segment) => { replayed.push(blob); sentenceIndices.push(segment.sentenceIndex); }, stop() {}, onError: assert.fail,
   });
-  replay.finish('真的！！” 下一句。');
+  replay.finish('真的！！” 下一句。还有一句。');
   await replay.done();
   assert.deepEqual(replayed, ['saved-1', 'saved-2', 'new-tail']);
-  assert.deepEqual(requested, ['下一句。']);
+  assert.deepEqual(requested, ['下一句。还有一句。']);
+  assert.deepEqual(sentenceIndices, [0, 0, 1], 'old audio chunk indices must not be mistaken for subtitle sentence indices');
 });
 
-test('a later synthesis failure does not interrupt already prepared audio', async () => {
+test('tail synthesis failure does not interrupt an existing cached sentence', async () => {
   let finishFirst;
   const played = [], errors = [];
   const queue = createSpeechStream({ mode: 'zh',
+    savedSegments: [{ text: '第一句。', language: 'zh' }],
     synthesize: async text => { if (text === '下一句。') throw new Error('语音服务失败'); return text; },
     play: async text => { played.push(text); await new Promise(resolve => { finishFirst = resolve; }); },
     stop() {}, onError: message => errors.push(message),
@@ -146,12 +175,11 @@ test('client bundled persona reaches the model while language and memory contrac
   assert.throws(() => systemPrompt({ basePersona: '' }), /基础人物提示词/);
 });
 
-test('Japanese first sentence is synthesized before completion; playback stays ordered and tail is retained', async () => {
+test('Japanese reply waits for completion and is synthesized once with every sentence and tail', async () => {
   const synthesized = [], played = [];
-  let endFirst;
   const queue = createSpeechStream({ mode: 'ja-zh',
     synthesize: async (text, language) => { synthesized.push({ text, language }); return text; },
-    play: async text => { played.push(text); if (played.length === 1) await new Promise(resolve => { endFirst = resolve; }); },
+    play: async text => played.push(text),
     stop() {}, onError: message => assert.fail(message),
   });
   queue.update('[emotion:happy]\n你好。\n[spe');
@@ -159,14 +187,21 @@ test('Japanese first sentence is synthesized before completion; playback stays o
   assert.equal(synthesized.length, 0);
   queue.update('[emotion:happy]\n你好。\n[speech:ja]\nこんにちは。まだ');
   await tick();
-  assert.deepEqual(synthesized, [{ text: 'こんにちは。', language: 'ja' }]);
+  assert.deepEqual(synthesized, [], 'a complete first sentence must not start an independent voice generation');
   queue.finish('[emotion:happy]\n你好。\n[speech:ja]\nこんにちは。まだ途中です');
-  await tick();
-  assert.equal(synthesized.length, 2, 'next synthesis overlaps first playback');
-  assert.deepEqual(played, ['こんにちは。']);
-  endFirst();
   await queue.done();
-  assert.deepEqual(played, ['こんにちは。', 'まだ途中です']);
+  queue.finish('[emotion:happy]\n你好。\n[speech:ja]\nこんにちは。まだ途中です');
+  await queue.done();
+  assert.deepEqual(synthesized, [{ text: 'こんにちは。まだ途中です', language: 'ja' }]);
+  assert.deepEqual(played, ['こんにちは。まだ途中です']);
+});
+
+test('whole-reply subtitle progress advances to each sentence and stays on the last at the end', () => {
+  const text = 'こんにちは。 まだ途中です。終わり。';
+  assert.equal(sentenceIndexAt(text, 0), 0);
+  assert.equal(sentenceIndexAt(text, text.indexOf('まだ')), 1);
+  assert.equal(sentenceIndexAt(text, text.indexOf('終わり')), 2);
+  assert.equal(sentenceIndexAt(text, text.length), 2);
 });
 
 test('cancel prevents late synthesis from playing; missing Japanese produces an error without speaking Chinese', async () => {
@@ -174,7 +209,7 @@ test('cancel prevents late synthesis from playing; missing Japanese produces an 
   const played = [], errors = [];
   const queue = createSpeechStream({ mode: 'zh', synthesize: (_text, _language, value) => { signal = value; return new Promise(resolve => { release = resolve; }); },
     play: text => played.push(text), stop() {}, onError: message => errors.push(message) });
-  queue.update('你好。下一句。');
+  queue.finish('你好。下一句。');
   await tick();
   queue.cancel();
   release('late audio');
@@ -182,6 +217,12 @@ test('cancel prevents late synthesis from playing; missing Japanese produces an 
   assert.equal(signal.aborted, true);
   assert.deepEqual(played, []);
   assert.deepEqual(errors, []);
+  const pending = createSpeechStream({ mode: 'zh', synthesize: () => assert.fail('cancelled text must not be synthesized'),
+    play: () => assert.fail('cancelled reply must not play'), stop() {}, onError: assert.fail });
+  pending.update('你好。下一句。');
+  pending.cancel();
+  pending.finish('你好。下一句。');
+  await pending.done();
   const missing = createSpeechStream({ mode: 'ja-zh', synthesize: () => assert.fail('must not synthesize Chinese'), play() {}, stop() {}, onError: message => errors.push(message) });
   missing.finish('只有中文字幕。');
   assert.match(errors[0], /没有生成日语/);

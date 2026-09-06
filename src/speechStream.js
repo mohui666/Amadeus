@@ -15,7 +15,12 @@ export function sentenceRanges(text, final = true) {
   return ranges;
 }
 
-// Synthesis runs ahead of ordered playback; all pending work shares cancellation.
+export function sentenceIndexAt(text, offset) {
+  return Math.max(0, sentenceRanges(text).findLastIndex(sentence => sentence.start <= offset));
+}
+
+// Synthesize the completed reply together so its voice context spans sentences.
+// Existing cached chunks retain their original playback order and cancellation.
 export function createSpeechStream({ mode, synthesize, play, stop, onError, savedSegments = [], expressionCues }) {
   const controller = new AbortController();
   const { signal } = controller;
@@ -31,10 +36,12 @@ export function createSpeechStream({ mode, synthesize, play, stop, onError, save
     stop();
     onError(error.message);
   };
-  function enqueue(text, language, start, end, cues) {
+  function enqueue(spoken, start, end, cues) {
+    const text = spoken.text.slice(start, end), language = spoken.language;
     if (!text.trim() || signal.aborted) return;
     const leading = text.length - text.trimStart().length;
-    const segment = { text: text.trim(), language, start, end, index: segmentIndex++, cues: segmentExpressions(cues, start + leading, end) };
+    const segment = { text: text.trim(), language, start: start + leading, end, index: segmentIndex++,
+      sentenceIndex: sentenceIndexAt(spoken.text, start + leading), cues: segmentExpressions(cues, start + leading, end) };
     const prepared = synthesis.then(() => { signal.throwIfAborted(); return synthesize(segment.text, language, signal, segment); });
     synthesis = prepared;
     firstAudio ??= prepared;
@@ -47,7 +54,7 @@ export function createSpeechStream({ mode, synthesize, play, stop, onError, save
     playback.catch(fail);
   }
   function update(reply, final = false) {
-    if (signal.aborted) return;
+    if (!final || signal.aborted) return;
     const spoken = spokenReply(reply, mode === 'ja-zh');
     if (mode !== 'ja-zh') spoken.language = mode === 'ja' ? 'ja' : 'zh';
     if (mode === 'ja-zh' && (spoken.language !== 'ja' || !spoken.text)) {
@@ -61,14 +68,11 @@ export function createSpeechStream({ mode, synthesize, play, stop, onError, save
       const whitespace = remaining.length - remaining.trimStart().length;
       if (saved.language !== spoken.language || !remaining.trimStart().startsWith(saved.text)) break;
       const end = consumed + whitespace + saved.text.length;
-      enqueue(saved.text, spoken.language, consumed + whitespace, end, expressionCues || spoken.cues);
+      enqueue(spoken, consumed + whitespace, end, expressionCues || spoken.cues);
       consumed = end;
     }
-    const offset = consumed;
-    for (const segment of sentenceRanges(spoken.text.slice(offset), final)) {
-      enqueue(segment.text, spoken.language, offset + segment.start, offset + segment.end, expressionCues || spoken.cues);
-      consumed = offset + segment.end;
-    }
+    enqueue(spoken, consumed, spoken.text.length, expressionCues || spoken.cues);
+    consumed = spoken.text.length;
   }
   return { update, finish: reply => update(reply, true), cancel, signal, ready: () => firstAudio?.catch(() => {}), synthesized: () => synthesis, done: () => playback };
 }
