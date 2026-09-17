@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "layers": 23,
+  "synthetic": {
+    "eye": false,
+    "mouth": false
+  },
+  "warnings": [],
+  "poses": 8,
+  "fullDemoSeconds": 12,
+  "motionVerticesChanged": true,
+  "maxAudioMouth": 0.9999496022281175,
+  "stopped": {
+    "paused": true,
+    "mouth": 0.0013045174353307114
+  },
+  "mobileOverflow": false
+}

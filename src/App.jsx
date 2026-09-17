@@ -96,9 +96,11 @@ export default function App() {
       const preset = await readJsonResponse(response);
       if (!response.ok) throw new Error(preset.error?.message || '本机语音配置读取失败');
       setLocalVoice(preset);
-      if (preset.configured && !localStorage.getItem('amadeus.settings')) {
-        setConfig(previous => ({ ...previous, tts: { ...preset.config } }));
-      }
+      setConfig(previous => {
+        const next = preset.configured && !readLocalData('settings') ? { ...previous, tts: { ...previous.tts, ...preset.config } } : previous;
+        persistSettings(next);
+        return next;
+      });
     }).catch(error => { if (error.name !== 'AbortError') setError(error.message); });
     return () => controller.abort();
   }, []);
@@ -300,6 +302,6 @@ export default function App() {
     </div>
     <footer className="site-footer desktop-only"><span><Radio size={13} />PROJECT AMADEUS <b>0</b></span><span>非官方复刻 · 角色素材来自 STEINS;GATE 0</span><span>EL PSY KONGROO.</span></footer>
     {panel && <div className="mobile-panel-backdrop" onClick={() => setPanel(null)}><section className="mobile-panel" role="dialog" aria-modal="true" aria-label={panel === 'history' ? '对话记录' : '语音片段'} onClick={e => e.stopPropagation()}>{panel === 'history' ? <Transcript activeSentence={voice.activeSentence} replyMode={config.replyMode} messages={messages} busy={busy} onClose={() => setPanel(null)} onExport={exportHistory} onClear={clearHistory} onSpeak={speak} /> : <><div className="panel-heading"><div><span className="eyebrow">ORIGINAL VOICE</span><h2>她的声音</h2></div><button className="icon-button" onClick={() => setPanel(null)} aria-label="关闭语音片段"><X /></button></div><div className="voice-list">{clips.map(clip => <button key={clip.file} onClick={() => { playClip(clip); setPanel(null); }}><span className="voice-play"><Play size={18} /></span><span><strong>{clip.title}</strong><small>日本語オリジナル</small></span><time>{clip.duration}</time></button>)}<p>原有录音片段。自由对话的声音由你设置的语音服务生成。</p></div></>}</section></div>}
-    {settings && <Settings config={config} memories={memories} onMemoriesChange={memory.change} memory={memory} localVoice={localVoice} onSave={value => { voice.stop(); voice.cancelRecording(); memory.stop(); setConfig(value); persistSettings(value); setError(''); refreshAccount(); }} onClose={() => setSettings(false)} account={account} refreshAccount={refreshAccount} />}
+    {settings && <Settings config={config} memories={memories} onMemoriesChange={memory.change} memory={memory} localVoice={localVoice} onSave={value => { persistSettings(value); voice.stop(); voice.cancelRecording(); memory.stop(); setConfig(value); setError(''); }} onClose={() => setSettings(false)} account={account} refreshAccount={refreshAccount} />}
   </main>;
 }

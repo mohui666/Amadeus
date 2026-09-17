@@ -1,0 +1,10 @@
+{
+  "errors": [],
+  "speaking": {
+    "paused": false,
+    "time": 0,
+    "mouth": 2.1074111297060118e-33,
+    "error": ""
+  },
+  "video": "experiments/live2d-authoring/fine/qa/refined-motion.webm"
+}

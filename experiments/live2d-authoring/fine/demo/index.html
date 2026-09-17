@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Amadeus · Live2D 细分模型</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="./style.css"></head>
+<body><main>
+<header><div><p class="eyebrow">AMADEUS / LIVE2D EXPRESSION STUDY</p><h1>目光、呼吸与回应。</h1><p class="intro">原立绘细分模型 · 表情与连续动作测试</p></div><a href="/authored/index.html">查看第一版 ↗</a></header>
+<div class="workspace">
+<section id="stage" class="stage" aria-label="Live2D人物画面"><div class="stage-heading"><span>牧濑 红莉栖</span><span id="state" role="status">正在加载…</span></div><canvas id="portrait"></canvas><img id="original" src="/original/kurisu_normal1.png" alt="原始立绘" hidden><div class="stage-caption"><span id="caption">视线跟随 · 点击人物眨眼</span><span>STUDY 02</span></div></section>
+<aside><h2>连续动作</h2><div class="buttons"><button id="demo" class="primary" disabled>▶ 播放 16 秒演示</button><button id="blink" disabled>眨眼一次</button><button id="voice" disabled>播放原作语音</button><button id="pause" disabled>暂停</button><button id="reset" disabled>复位</button></div><p id="audio-status" class="hint">原作语音 · 初次见面</p>
+<div class="divider"></div><h2>表情测试</h2><div class="expressions"><button data-preset="neutral" disabled>平静</button><button data-preset="focus" disabled>认真</button><button data-preset="surprise" disabled>惊讶</button><button data-preset="thought" disabled>思考</button><button data-preset="doubt" disabled>疑惑</button><button data-preset="rest" disabled>闭眼</button></div>
+<details><summary>逐项调节</summary><div id="controls"></div></details>
+<label class="check"><input id="idle" type="checkbox" checked disabled>呼吸与头发物理</label><label class="check"><input id="auto-blink" type="checkbox" checked disabled>自然眨眼</label><label class="check"><input id="follow" type="checkbox" checked disabled>视线跟随</label><label class="check"><input id="zoom" type="checkbox" disabled>面部特写</label><label class="check"><input id="compare" type="checkbox" disabled>原始立绘对照</label>
+<p id="error" role="alert"></p><p class="source">独立试制模型。可检查闭眼、口型与小幅转头；素材重绘后，发色和五官仍需与原画逐项比较。</p></aside></div>
+<footer>22 个独立网格 · Cubism 工程与分层 PSD 已保留</footer></main>
+<audio id="audio" preload="auto" src="/voice/pleased_to_meet_you.ogg"></audio>
+<script src="/vendor/live2dcubismcore.min.js"></script><script src="/vendor/pixi.min.js"></script><script src="/vendor/cubism4.min.js"></script><script type="module" src="./demo.js"></script></body></html>

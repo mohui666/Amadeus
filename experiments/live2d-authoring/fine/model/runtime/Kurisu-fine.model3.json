@@ -1,0 +1,18 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Kurisu-fine.moc3",
+		"Textures": [
+			"Kurisu-fine.4096/texture_00.png"
+		],
+		"Physics": "Kurisu-fine.physics3.json",
+		"DisplayInfo": "Kurisu-fine.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}

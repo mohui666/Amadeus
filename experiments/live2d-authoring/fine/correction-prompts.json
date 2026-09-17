@@ -1,0 +1,18 @@
+[
+  {
+    "file": "head-base",
+    "prompt": "Use case: precise-object-edit. Edit image 1 in place, a Live2D original portrait head. Preserve its exact 940x1674 canvas, placement, scale, jawline, nose, cream skin paint texture and BACK hair silhouette. Remove ONLY the entire front bangs and the two foreground long side locks (thin left lock, broad curved right lock), and the eyebrows. Reconstruct the blank forehead skin hidden under the bangs, and dark brown back hair behind removed side locks. Keep the BACK hair behind both cheeks and above the crown so this is a complete HEAD BASE layer. No eyes or mouth. Jaw tip stays exactly at x463 y714, nose exactly x463 y576. No neck: the neck/body opening beneath jaw must remain empty. Do not change face shape or existing exposed face pixels. Do not include detached extracted parts. Background and removed outside areas are TRANSPARENT, no checkerboard drawing. No whole body, no text. This is a precise source-preserving rig component, not a redesign."
+  },
+  {
+    "file": "hair-bangs",
+    "prompt": "Use case: precise-object-edit. Image 1 is the edit target for a Live2D component extraction. Preserve its exact 940x1674 canvas and exact original painted orange hair pixels. Keep ONLY the FRONT BANGS and their connected crown in the exact original location. Crown reaches cropped top edge; the central spiky bang tips end around x450 y457; outer fringe merges into temples around y380. Remove face, eyebrows, back hair, and both long foreground side locks below the temple. The part must retain the original narrow long middle spikes, not become a short rounded wig. Fill only hidden root attachments. NO scaling, no repositioning, no redesign, no darkening, no white edge halo. The rest is empty real transparent alpha, never draw checkerboard. No labels or additional parts."
+  },
+  {
+    "file": "hair-left",
+    "prompt": "Use case: background-extraction. Image 1 is exact edit target, a Live2D head. Retain ONLY the narrow long orange FOREGROUND hair lock on the VIEWER LEFT, from its root at the left crown around x200 y50 down the left edge of the face to the sharp tapered tip at x327 y972. Preserve exact original painted pixels, narrow silhouette, curvature, color and in-place location on the exact 940x1674 canvas. Remove every other part including crown/bangs outside this lock, back hair, face and right lock. Allow a short hidden root extension, keep the tip identical. No recentering, resizing, rotation, rearrangement or stylization. Empty actual transparent background, no checkerboard, no text, no other elements."
+  },
+  {
+    "file": "hair-right",
+    "prompt": "Use case: background-extraction. Image 1 is exact edit target, a Live2D head. Retain ONLY the thick long orange FOREGROUND hair lock on the VIEWER RIGHT, from its root around x645 y130 down beside the right face, curving into a tapered curled tip near x698 y1220. Preserve exact original painted pixels, silhouette, highlights, curvature, color and in-place location on the exact 940x1674 canvas. Remove every other part including crown/bangs outside this lock, back hair, face and left lock. Keep the original two tapered ends and long length. No recentering, resizing, rotation, rearrangement or stylization. Empty actual transparent background, no checkerboard, no text, no other elements."
+  }
+]

@@ -87,15 +87,16 @@
 .settings-dialog .sheet-heading{padding:22px 24px 18px}
 .settings-dialog .sheet-heading h2{font:500 24px/1.3 'Noto Sans SC',sans-serif;letter-spacing:1px;margin:6px 0 0}
 .settings-dialog .sheet-heading .eyebrow{font-size:9px;letter-spacing:2px;color:#b7a579}
-.settings-dialog .settings-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:0 20px}
+.settings-dialog .settings-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:4px;margin:0 24px;background:#101615;border:1px solid var(--line);border-radius:10px}
 .settings-dialog .settings-tabs button{justify-content:center;min-height:48px;font-size:13px;gap:7px;color:#a9b0a3}
-.settings-dialog .settings-tabs .selected{color:#e0c58a}
+.settings-dialog .settings-tabs button{border:0;border-radius:7px}
+.settings-dialog .settings-tabs .selected{color:#eedab2;background:#33372e;box-shadow:0 1px 4px #0003}
 .character-hit[data-state=idle] .character,.character-hit[data-state=speaking] .character{animation:character-breathe 5.6s ease-in-out infinite;transform-origin:50% 90%}
 .character-hit[data-state=listening] .character{animation:character-listen .65s ease-in-out 1;transform-origin:50% 90%}
 @keyframes character-breathe{0%,100%{translate:0 0;scale:1}50%{translate:0 -2px;scale:1.003}}
 @keyframes character-listen{0%,100%{translate:0 0;rotate:0deg}45%{translate:0 2px;rotate:.35deg}}
 @media(prefers-reduced-motion:reduce){.character-hit .character{animation:none!important}}
-.settings-dialog .settings-content{padding:24px;min-height:0}
+.settings-dialog .settings-content{padding:24px;min-height:0;scrollbar-gutter:stable}
 .settings-dialog .field{margin-bottom:18px;gap:8px}
 .settings-dialog .field>span{font-size:13px;color:#c0c6b9}
 .settings-dialog .helper{font-size:13px!important;line-height:1.7!important;color:#a5aea2!important;margin:8px 0 20px}
@@ -111,7 +112,7 @@
 .settings-dialog .toggle-row strong{font-weight:500}
 .settings-dialog .icon-button{min-width:44px;min-height:44px;justify-content:center;align-items:center}
 .settings-dialog .text-button{min-height:44px;font-size:13px}
-.settings-dialog .settings-details{border:1px solid #ffffff18;border-radius:8px;padding:0 16px;margin:0 0 20px;text-align:left}
+.settings-dialog .settings-details{border:1px solid #ffffff18;border-radius:10px;padding:0 16px;margin:0 0 20px;text-align:left;background:#131918}
 .settings-dialog .settings-details>summary{min-height:48px;padding:14px 0;font-size:13px;color:#c4cbbd;cursor:pointer}
 .settings-dialog .settings-details>summary::marker{color:#b89e65}
 .settings-dialog .settings-details[open]>summary{margin-bottom:12px;border-bottom:1px solid #ffffff12}
@@ -119,8 +120,17 @@
 .settings-dialog .local-voice-preset{padding:0 0 8px;background:none;border:0;margin-bottom:12px}
 .settings-dialog .field textarea{min-height:140px}
 .settings-dialog .memory-heading{margin:20px 0 12px;flex-wrap:wrap}
-.settings-dialog .memory-entry{border-radius:8px;padding:14px}
+.settings-dialog .memory-entry{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:8px 0 14px}
 .settings-dialog .memory-entry summary{cursor:pointer;min-height:36px;line-height:36px}
 .settings-dialog .settings-footer{padding:14px 24px;gap:16px}
+.settings-dialog .settings-footer>span{color:#abb5a4;line-height:1.6;display:block}
+.settings-dialog .settings-group{border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:20px;background:#131918}
+.settings-dialog .settings-group>.field:last-child{margin-bottom:0}
+.settings-dialog .memory-overview{display:flex;align-items:center;gap:14px;padding:6px 0 10px;color:#dacaab}
+.settings-dialog .memory-overview strong{font-size:15px;font-weight:500}
+.settings-dialog .memory-overview p{font-size:13px;color:#acb7a5;margin:6px 0 0}
+.settings-dialog .memory-history{margin-top:20px}
+.settings-dialog .memory-entry small,.settings-dialog .memory-entry summary{color:#acb7a5}
+.settings-dialog :is(button,input,select,textarea,summary):focus-visible{outline:2px solid #d6b87b;outline-offset:3px}
 .settings-dialog .settings-footer .primary-button{margin-left:auto;min-height:44px;padding:10px 24px}
-@media(max-width:760px){.settings-dialog{width:100%;max-width:100%;border-radius:18px 18px 0 0}.settings-dialog .settings-shell{height:94dvh;max-height:94dvh}.settings-dialog .settings-content{padding:22px 20px}.settings-dialog .settings-tabs{padding:0 14px}.settings-dialog .field input:not([type=range]),.settings-dialog .field select,.settings-dialog .field textarea{font-size:16px}.settings-dialog .settings-footer{padding:12px 20px max(14px,env(safe-area-inset-bottom))}}
+@media(max-width:760px){.settings-dialog{width:100%;max-width:100%;border-radius:18px 18px 0 0}.settings-dialog .settings-shell{height:94dvh;max-height:94dvh}.settings-dialog .settings-content{padding:22px 20px}.settings-dialog .settings-tabs{padding:4px;margin:0 20px}.settings-dialog .settings-tabs button{font-size:12px;gap:5px}.settings-dialog .field input:not([type=range]),.settings-dialog .field select,.settings-dialog .field textarea{font-size:16px}.settings-dialog .settings-footer{padding:12px 20px max(14px,env(safe-area-inset-bottom))}}

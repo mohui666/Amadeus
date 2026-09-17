@@ -83,3 +83,9 @@ Android 据此缩小人物、压暗背景、缩小角落标志、移动启动页
 `public/assets/kurisu/expressions-v3/{skeptical,tender,amused}{1,2,3,4}.png` 分别以原版 `kurisu_normal1/2/3.png` 为参考，通过内置 image_gen 生成，包含闭口、两种口型与闭眼。后处理包括去底、整张图等比缩放和平移，以及以原版为基准的亮度与色调校准；不拼接五官、头发或身体。按用户要求与原版和相邻帧重叠核对，检查完整衣服及底边。最终提示词与每帧来源见 [生成提示词与输入路径示例](docs/expression-original-prompts.example.json)，处理脚本为 `scripts/align-original-expressions.py`。这是生成的衍生素材，不是官方新增原画。
 
 重新处理表情时，将示例复制为 `docs/expression-original-prompts.json`，把 `source` 改为自己的生成图路径后运行处理脚本。实际生成源图与含本机路径的清单不上传。源码 MIT 许可证不覆盖角色、Logo、原声、参考截图或基于原作生成的衍生图像，这些素材的权利仍归各自权利人。
+
+## 阶段一眨眼测试素材
+
+`public/assets/kurisu/animation-phase1/{half,closed}{1,2,3}.png` 为本轮通过内置 image_gen 逐张生成的 6 张衍生立绘，直接参考对应的原版 `kurisu_normal1/2/3.png`，只要求改变眼睛开合。去底、整图等比缩放和平移、排除表情区域的色调校准由现有对齐脚本完成；没有拼接五官或套用身体。与原版和相邻帧进行重叠检查，检查底边及两个下角；一张偏移明显的初稿已重新生成，旧稿仅留在 `.local/animation-phase1/sources/`。
+
+最终 PNG 为 1213 × 2160 RGBA，用于独立的阶段一表情 testcase。提示词与每帧原版参考见 [生成清单](docs/animation-phase1-prompts.json)，测试入口与验证方式见 [表情说明](docs/EXPRESSIONS.md#阶段一表情-testcase)。这些是 AI 衍生补帧，仍存在细微绘制差异，沿用上述角色素材权利说明。

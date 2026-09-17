@@ -4,15 +4,23 @@ Only background alpha, uniform scale, translation and color tone are changed. No
 mouth, hair or body compositing. Input manifest records each generator output.
 """
 from pathlib import Path
+import argparse
 import json
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / 'public/assets/kurisu/expressions-v3'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--manifest', default='docs/expression-original-prompts.json')
+parser.add_argument('--output', default='public/assets/kurisu/expressions-v3')
+parser.add_argument('--report-prefix', default='test-results/expression')
+args = parser.parse_args()
+OUTPUT = ROOT / args.output
 OUTPUT.mkdir(parents=True, exist_ok=True)
-manifest = json.loads((ROOT / 'docs/expression-original-prompts.json').read_text(encoding='utf-8'))
+manifest = json.loads((ROOT / args.manifest).read_text(encoding='utf-8'))
+report_prefix = ROOT / args.report_prefix
+report_prefix.parent.mkdir(parents=True, exist_ok=True)
 reference = Image.open(ROOT / 'public/assets/kurisu/kurisu_normal1.png').convert('RGBA')
 small = reference.resize((940, 1674), Image.Resampling.LANCZOS)
 ref_gray = cv2.cvtColor(np.asarray(small)[:, :, :3], cv2.COLOR_RGB2GRAY)
@@ -49,6 +57,9 @@ def cutout(image):
     rgb = rgba[:, :, :3].astype(np.int16)
     dark_background = np.median(rgb[:100, :40]) < 40
     contour = rgb.max(2) > 40 if dark_background else ((rgb.max(2) - rgb.min(2) > 12) | (rgb.min(2) < 185))
+    # Ignore disconnected generator border marks before finding the portrait outline.
+    _, labels, stats, _ = cv2.connectedComponentsWithStats(np.uint8(contour), connectivity=8)
+    contour = labels == (1 + np.argmax(stats[1:, cv2.CC_STAT_AREA]))
     alpha = np.zeros(contour.shape, np.uint8)
     # Preserve every pixel inside the complete outer outline, including white fabric.
     for y, row in enumerate(contour):
@@ -60,7 +71,7 @@ def cutout(image):
 
 report = []
 for item in manifest['frames']:
-    source = Image.open(item['source'])
+    source = Image.open(ROOT / item['source'])
     gray = cv2.cvtColor(np.asarray(source.convert('RGB')), cv2.COLOR_RGB2GRAY)
     keys, desc = sift.detectAndCompute(gray, None)
     matches = [a for a, b in cv2.BFMatcher().knnMatch(desc, ref_desc, k=2) if a.distance < .7 * b.distance]
@@ -100,8 +111,8 @@ for item in manifest['frames']:
     report.append({'frame':item['name'], 'matches':int(best.sum()), 'scale':float(matrix[0,0]), 'translation':[float(matrix[0,2]),float(matrix[1,2])], 'medianResidualAt940':round(float(np.median(residual)),2)})
     print(report[-1])
 
-# Full-portrait comparison against the original, 50% opacity, all twelve frames.
-board = Image.new('RGB', (1120, 1605), '#192026')
+# Full-portrait comparison against the original at 50% opacity.
+board = Image.new('RGB', (1120, ((len(manifest['frames']) + 3) // 4) * 535), '#192026')
 for i, item in enumerate(manifest['frames']):
     frame = Image.open(OUTPUT / f'{item["name"]}.png').convert('RGBA')
     base = Image.new('RGBA', reference.size, '#192026')
@@ -111,5 +122,5 @@ for i, item in enumerate(manifest['frames']):
     x, y = (i % 4)*280, (i // 4)*535
     board.paste(overlay, (x, y+25))
     ImageDraw.Draw(board).text((x+8,y+7), item['name']+' / original 50%', fill='white')
-board.save(ROOT / 'test-results/expression-original-overlay.png')
-(ROOT / 'test-results/expression-alignment.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+board.save(f'{report_prefix}-original-overlay.png')
+Path(f'{report_prefix}-alignment.json').write_text(json.dumps(report, indent=2), encoding='utf-8')

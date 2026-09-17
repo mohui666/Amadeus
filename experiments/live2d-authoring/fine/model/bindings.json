@@ -1,0 +1,704 @@
+{
+  "parameters": [
+    {
+      "id": "ParamAngleX",
+      "min": -30,
+      "max": 30,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamAngleY",
+      "min": -30,
+      "max": 30,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamAngleZ",
+      "min": -30,
+      "max": 30,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamEyeLOpen",
+      "min": 0,
+      "max": 1,
+      "default": 1,
+      "changed": []
+    },
+    {
+      "id": "ParamEyeLSmile",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamEyeROpen",
+      "min": 0,
+      "max": 1,
+      "default": 1,
+      "changed": []
+    },
+    {
+      "id": "ParamEyeRSmile",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamEyeBallX",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamEyeBallY",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBrowLY",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBrowRY",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBrowLX",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBrowRX",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBrowLAngle",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBrowRAngle",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBrowLForm",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBrowRForm",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamMouthForm",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamMouthOpenY",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamCheek",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBodyAngleX",
+      "min": -10,
+      "max": 10,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBodyAngleY",
+      "min": -10,
+      "max": 10,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBodyAngleZ",
+      "min": -10,
+      "max": 10,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamBreath",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamHairFront",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamHairSide",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "ParamHairBack",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "PARAM_ANGLE_X",
+      "min": -30,
+      "max": 30,
+      "default": 0,
+      "changed": [
+        "HairBangs",
+        "HairFrontR",
+        "HairFrontL",
+        "MouthLower",
+        "MouthUpper",
+        "MouthTongue",
+        "MouthTeeth",
+        "MouthCavity",
+        "BrowR",
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeBallR",
+        "EyeWhiteR",
+        "BrowL",
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeBallL",
+        "EyeWhiteL",
+        "HeadBase"
+      ]
+    },
+    {
+      "id": "PARAM_ANGLE_Y",
+      "min": -30,
+      "max": 30,
+      "default": 0,
+      "changed": [
+        "HairBangs",
+        "HairFrontR",
+        "HairFrontL",
+        "MouthLower",
+        "MouthUpper",
+        "MouthTongue",
+        "MouthTeeth",
+        "MouthCavity",
+        "BrowR",
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeBallR",
+        "EyeWhiteR",
+        "BrowL",
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeBallL",
+        "EyeWhiteL",
+        "HeadBase"
+      ]
+    },
+    {
+      "id": "PARAM_ANGLE_Z",
+      "min": -30,
+      "max": 30,
+      "default": 0,
+      "changed": [
+        "HairBangs",
+        "HairFrontR",
+        "HairFrontL",
+        "MouthLower",
+        "MouthUpper",
+        "MouthTongue",
+        "MouthTeeth",
+        "MouthCavity",
+        "BrowR",
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeBallR",
+        "EyeWhiteR",
+        "BrowL",
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeBallL",
+        "EyeWhiteL",
+        "HeadBase"
+      ]
+    },
+    {
+      "id": "PARAM_EYE_L_OPEN",
+      "min": 0,
+      "max": 2,
+      "default": 1,
+      "changed": [
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeWhiteR"
+      ]
+    },
+    {
+      "id": "PARAM_EYE_L_SMILE",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "PARAM_EYE_R_OPEN",
+      "min": 0,
+      "max": 2,
+      "default": 1,
+      "changed": [
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeWhiteL"
+      ]
+    },
+    {
+      "id": "PARAM_EYE_R_SMILE",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": []
+    },
+    {
+      "id": "PARAM_EYE_FORM",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeWhiteR",
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeWhiteL"
+      ]
+    },
+    {
+      "id": "PARAM_EYE_BALL_X",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "EyeBallR",
+        "EyeBallL"
+      ]
+    },
+    {
+      "id": "PARAM_EYE_BALL_Y",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "EyeBallR",
+        "EyeBallL"
+      ]
+    },
+    {
+      "id": "PARAM_EYE_BALL_FORM",
+      "min": -1,
+      "max": 0,
+      "default": 0,
+      "changed": [
+        "EyeBallR",
+        "EyeBallL"
+      ]
+    },
+    {
+      "id": "PARAM_BROW_L_Y",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "BrowR"
+      ]
+    },
+    {
+      "id": "PARAM_BROW_R_Y",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "BrowL"
+      ]
+    },
+    {
+      "id": "PARAM_BROW_L_X",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "BrowR"
+      ]
+    },
+    {
+      "id": "PARAM_BROW_R_X",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "BrowL"
+      ]
+    },
+    {
+      "id": "PARAM_BROW_L_ANGLE",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "BrowR"
+      ]
+    },
+    {
+      "id": "PARAM_BROW_R_ANGLE",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "BrowL"
+      ]
+    },
+    {
+      "id": "PARAM_BROW_L_FORM",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "BrowR"
+      ]
+    },
+    {
+      "id": "PARAM_BROW_R_FORM",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "BrowL"
+      ]
+    },
+    {
+      "id": "PARAM_MOUTH_FORM",
+      "min": -1,
+      "max": 1,
+      "default": 1,
+      "changed": []
+    },
+    {
+      "id": "PARAM_MOUTH_OPEN_Y",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "MouthLower",
+        "MouthTongue",
+        "MouthTeeth",
+        "MouthCavity"
+      ]
+    },
+    {
+      "id": "PARAM_BODY_ANGLE_X",
+      "min": -10,
+      "max": 10,
+      "default": 0,
+      "changed": [
+        "HairBangs",
+        "HairFrontR",
+        "HairFrontL",
+        "MouthLower",
+        "MouthUpper",
+        "MouthTongue",
+        "MouthTeeth",
+        "MouthCavity",
+        "BrowR",
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeBallR",
+        "EyeWhiteR",
+        "BrowL",
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeBallL",
+        "EyeWhiteL",
+        "HeadBase",
+        "Body",
+        "Neck",
+        "HairBackFill"
+      ]
+    },
+    {
+      "id": "PARAM_BODY_ANGLE_Y",
+      "min": -10,
+      "max": 10,
+      "default": 0,
+      "changed": [
+        "HairBangs",
+        "HairFrontR",
+        "HairFrontL",
+        "MouthLower",
+        "MouthUpper",
+        "MouthTongue",
+        "MouthTeeth",
+        "MouthCavity",
+        "BrowR",
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeBallR",
+        "EyeWhiteR",
+        "BrowL",
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeBallL",
+        "EyeWhiteL",
+        "HeadBase",
+        "Body",
+        "Neck",
+        "HairBackFill"
+      ]
+    },
+    {
+      "id": "PARAM_BODY_ANGLE_Z",
+      "min": -10,
+      "max": 10,
+      "default": 0,
+      "changed": [
+        "HairBangs",
+        "HairFrontR",
+        "HairFrontL",
+        "MouthLower",
+        "MouthUpper",
+        "MouthTongue",
+        "MouthTeeth",
+        "MouthCavity",
+        "BrowR",
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeBallR",
+        "EyeWhiteR",
+        "BrowL",
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeBallL",
+        "EyeWhiteL",
+        "HeadBase",
+        "Body",
+        "Neck",
+        "HairBackFill"
+      ]
+    },
+    {
+      "id": "PARAM_BREATH",
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "HairBangs",
+        "HairFrontR",
+        "HairFrontL",
+        "MouthLower",
+        "MouthUpper",
+        "MouthTongue",
+        "MouthTeeth",
+        "MouthCavity",
+        "BrowR",
+        "EyeUpperR",
+        "EyeLowerR",
+        "EyeBallR",
+        "EyeWhiteR",
+        "BrowL",
+        "EyeUpperL",
+        "EyeLowerL",
+        "EyeBallL",
+        "EyeWhiteL",
+        "HeadBase",
+        "Body",
+        "Neck",
+        "HairBackFill"
+      ]
+    },
+    {
+      "id": "PARAM_HAIR_FRONT",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "HairBangs"
+      ]
+    },
+    {
+      "id": "PARAM_HAIR_BACK",
+      "min": -1,
+      "max": 1,
+      "default": 0,
+      "changed": [
+        "HairFrontR",
+        "HairFrontL"
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "id": "HairBangs",
+      "vertices": 77,
+      "masks": []
+    },
+    {
+      "id": "HairFrontR",
+      "vertices": 29,
+      "masks": []
+    },
+    {
+      "id": "HairFrontL",
+      "vertices": 30,
+      "masks": []
+    },
+    {
+      "id": "MouthLower",
+      "vertices": 16,
+      "masks": []
+    },
+    {
+      "id": "MouthUpper",
+      "vertices": 22,
+      "masks": []
+    },
+    {
+      "id": "MouthTongue",
+      "vertices": 8,
+      "masks": [
+        "MouthCavity"
+      ]
+    },
+    {
+      "id": "MouthTeeth",
+      "vertices": 13,
+      "masks": [
+        "MouthCavity"
+      ]
+    },
+    {
+      "id": "MouthCavity",
+      "vertices": 8,
+      "masks": []
+    },
+    {
+      "id": "BrowR",
+      "vertices": 28,
+      "masks": []
+    },
+    {
+      "id": "EyeUpperR",
+      "vertices": 74,
+      "masks": []
+    },
+    {
+      "id": "EyeLowerR",
+      "vertices": 37,
+      "masks": []
+    },
+    {
+      "id": "EyeBallR",
+      "vertices": 24,
+      "masks": [
+        "EyeWhiteR"
+      ]
+    },
+    {
+      "id": "EyeWhiteR",
+      "vertices": 31,
+      "masks": []
+    },
+    {
+      "id": "BrowL",
+      "vertices": 28,
+      "masks": []
+    },
+    {
+      "id": "EyeUpperL",
+      "vertices": 68,
+      "masks": []
+    },
+    {
+      "id": "EyeLowerL",
+      "vertices": 37,
+      "masks": []
+    },
+    {
+      "id": "EyeBallL",
+      "vertices": 22,
+      "masks": [
+        "EyeWhiteL"
+      ]
+    },
+    {
+      "id": "EyeWhiteL",
+      "vertices": 21,
+      "masks": []
+    },
+    {
+      "id": "HeadBase",
+      "vertices": 55,
+      "masks": []
+    },
+    {
+      "id": "Body",
+      "vertices": 58,
+      "masks": []
+    },
+    {
+      "id": "Neck",
+      "vertices": 4,
+      "masks": []
+    },
+    {
+      "id": "HairBackFill",
+      "vertices": 4,
+      "masks": []
+    }
+  ]
+}

@@ -18,6 +18,11 @@
     "deploy:tts:modal": ".\\.local\\modal\\venv\\Scripts\\python.exe -X utf8 -m modal deploy scripts/modal-qwen.py",
     "test": "node --test tests/api.test.mjs tests/codex.test.mjs tests/remote.test.mjs tests/memory-speech.test.mjs tests/smart-memory.test.mjs",
     "test:ui": "node tests/browser.mjs",
+    "test:animation": "node --test tests/animation-phase1.test.mjs",
+    "test:animation:ui": "node tests/animation-phase1.browser.mjs",
+    "live2d:setup": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-live2d-test.ps1",
+    "live2d:serve": "node scripts/live2d-test-server.mjs",
+    "test:live2d": "node tests/live2d.browser.mjs",
     "build:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-android.ps1"
   },
   "dependencies": {

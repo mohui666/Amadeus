@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { request, readJsonResponse } from './api.js';
-import { rememberTurn, pendingMemories, memoryCandidates, mergeFacts } from './memory.js';
+import { rememberTurn, pendingMemories, memoryCandidates, mergeFacts, extractionBatch } from './memory.js';
 import { cleanReply } from './config.js';
 
 export function useMemory(config, memories, setMemories) {
@@ -30,15 +30,14 @@ export function useMemory(config, memories, setMemories) {
     // Each pass processes distinct source turns; failures are surfaced, never retried.
     try {
       do {
-        const pending = pendingMemories(current.current);
-        const batch = pending.slice(-6);
-        if (!batch.length) break;
-        const turns = batch.map(entry => ({ id: entry.id, text: entry.text.slice(0, 6000), reply: (entry.reply || '').slice(0, 3000), time: entry.time }));
-        const existing = memoryCandidates(current.current.filter(entry => entry.source === 'learned' && !entry.supersededBy), turns.map(turn => turn.text).join('\n'));
-        const response = await request('/api/memory', { action: 'extract', config: { chat: config.chat }, turns, existing }, controller.signal);
+        const { turns, context } = extractionBatch(current.current);
+        if (!turns.length) break;
+        const existing = memoryCandidates(current.current.filter(entry => entry.source === 'learned' && !entry.supersededBy), turns.map(turn => turn.text).join('\n'), 80);
+        const response = await request('/api/memory', { action: 'extract', config: { chat: config.chat }, turns, context, existing,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone }, controller.signal);
         const { facts } = await readJsonResponse(response);
         controller.signal.throwIfAborted();
-        const next = mergeFacts(current.current, facts, turns);
+        const next = mergeFacts(current.current, facts, turns, context);
         current.current = next; setMemories(next);
       } while (pendingMemories(current.current).length);
     } catch (error) {

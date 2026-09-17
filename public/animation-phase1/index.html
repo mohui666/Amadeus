@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amadeus · 阶段一表情测试</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="eyebrow">AMADEUS / ANIMATION STUDY 01</p><h1>让每一次眨眼，接上说话的节奏。</h1><p class="intro">正面 · 平静表情测试　/　三档口型 × 三种眼睛状态</p></div>
+      <a class="back" href="../">返回 Amadeus ↗</a>
+    </header>
+    <div class="workspace">
+      <section class="comparison" aria-label="动画对比">
+        <article class="portrait-panel">
+          <div class="panel-title"><span>01 / 原有方式</span><small>三档切帧 · 直接闭眼</small></div>
+          <canvas id="before" width="560" height="997" aria-label="原有动画"></canvas>
+          <div class="panel-caption"><span id="before-state">睁眼 · 闭口</span><span>BEFORE</span></div>
+        </article>
+        <article class="portrait-panel improved">
+          <div class="panel-title"><span>02 / 阶段一</span><small>平滑口型 · 分段眨眼</small></div>
+          <canvas id="after" width="560" height="997" aria-label="阶段一动画"></canvas>
+          <div class="panel-caption"><span id="after-state">睁眼 · 闭口</span><span>AFTER</span></div>
+        </article>
+      </section>
+      <aside aria-label="测试控制">
+        <div class="section-heading"><span class="live-dot"></span><strong id="status" role="status">正在解码素材…</strong></div>
+        <p class="hint">两侧共用同一段原作语音，可直接观察嘴型和眨眼的差别。</p>
+        <div class="play-buttons">
+          <button id="demo" class="primary" disabled>▶ 播放完整演示</button>
+          <button id="voice" disabled>只播放语音</button>
+          <button id="pause" disabled>暂停</button>
+          <button id="stop" disabled>停止 / 复位</button>
+        </div>
+        <p class="hint" id="sequence">待机 → 倾听 → 思考 → 说话 → 待机</p>
+        <div class="audio-progress"><span>原作语音 · 初次见面</span><time id="time">0:00 / 0:00</time></div>
+        <input id="seek" type="range" min="0" max="1" step=".01" value="0" aria-label="语音播放进度" disabled />
+        <div class="meter-row"><span>声音</span><meter id="raw" min="0" max=".3" value="0"></meter></div>
+        <div class="meter-row"><span>平滑后</span><meter id="smooth" min="0" max=".3" value="0"></meter></div>
+        <div class="divider"></div>
+        <h2>逐帧与状态检查</h2>
+        <div class="form-grid">
+          <label>眼睛<select id="eyes" disabled><option value="auto">自动眨眼</option><option value="open">睁眼</option><option value="half">半闭眼</option><option value="closed">闭眼</option></select></label>
+          <label>口型<select id="mouth" disabled><option value="auto">跟随声音</option><option value="1">闭口</option><option value="2">小张嘴</option><option value="3">大张嘴</option></select></label>
+          <label>动作状态<select id="mode" disabled><option value="idle">待机</option><option value="listening">倾听</option><option value="thinking">思考</option><option value="speaking">说话</option></select></label>
+          <label>播放速度<select id="speed" disabled><option value="1">正常速度</option><option value=".5">½ 倍慢放</option><option value=".25">¼ 倍慢放</option></select></label>
+        </div>
+        <button id="blink" class="wide" disabled>眨眼一次</button>
+        <label class="check"><input id="zoom" type="checkbox" />放大脸部</label>
+        <label class="check"><input id="motion" type="checkbox" checked />呼吸与状态衔接</label>
+        <label class="overlay-label" for="overlay">叠加原版核对 <output id="overlay-value">0%</output></label>
+        <input id="overlay" type="range" min="0" max="1" step=".05" value="0" aria-label="原版叠加透明度" />
+        <p class="hint">逐帧检查时可关闭呼吸，选择眼睛和口型，再把原版叠加到 50%，核对头发、衣领、肩线与底边。</p>
+        <p id="error" role="alert"></p>
+      </aside>
+    </div>
+    <footer><span>素材：3 张原版睁眼帧 + 6 张 AI 衍生补帧。仅对齐整张立绘与校准色调。</span><span>本页使用本地素材，无需模型或语音接口。</span></footer>
+  </main>
+  <audio id="audio" preload="auto" src="../assets/voice/pleased_to_meet_you.ogg"></audio>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>红莉栖 · 2.5D 动画测试</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<section class="portrait" id="stage" aria-label="红莉栖动画预览"><div class="stage-label"><span>AMADEUS / MOTION STUDY</span><span id="state">加载中</span></div><iframe id="engine" title="红莉栖 2.5D 动画" src="engine/index.html?obs=1"></iframe><img id="original" src="/original/kurisu_normal1.png" alt="原始立绘" hidden><div class="stage-bottom"><span>牧濑 红莉栖</span><span>DEMO 03</span></div></section>
+<aside><p class="eyebrow">ANIME2.5DRIG TESTCASE</p><h1>让动作，<br>回到细节。</h1><p class="intro">先看眼睛与嘴巴，再观察发束和颈部。这个独立样例使用现有分层素材，测试新的自动绑定方式。</p>
+<div class="actions"><button id="demo" class="primary" disabled>播放 12 秒动作</button><button id="pause" disabled>暂停</button><button id="reset" disabled>复位</button></div>
+<section class="controls"><h2>固定姿态</h2><div class="presets"><button data-pose="neutral" disabled>正脸</button><button data-pose="left" disabled>向左</button><button data-pose="right" disabled>向右</button><button data-pose="closed" disabled>闭眼</button><button data-pose="half" disabled>半闭眼</button><button data-pose="mouth" disabled>张嘴</button><button data-pose="combo" disabled>转头＋张嘴</button><button data-pose="blinkTurn" disabled>转头＋闭眼</button></div>
+<label>左右转头 <output id="yawValue">0</output><input id="yaw" type="range" min="-0.65" max="0.65" step="0.01" value="0" disabled></label>
+<label>抬头低头 <output id="pitchValue">0</output><input id="pitch" type="range" min="-0.5" max="0.5" step="0.01" value="0" disabled></label>
+<label>眼睛开度 <output id="eyeValue">100%</output><input id="eye" type="range" min="0" max="1" step="0.01" value="1" disabled></label>
+<label>嘴巴开度 <output id="mouthValue">0%</output><input id="mouth" type="range" min="0" max="1" step="0.01" value="0" disabled></label></section>
+<section class="controls"><h2>连续动作</h2><div class="toggles"><label><input id="idle" type="checkbox" checked disabled>轻微待机</label><label><input id="blink" type="checkbox" checked disabled>自然眨眼</label><label><input id="physics" type="checkbox" checked disabled>头发物理</label><label><input id="fullbody" type="checkbox" disabled>完整立绘</label><label><input id="compare" type="checkbox">原图对照</label></div></section>
+<section class="voice"><button id="voice" disabled>播放语音，测试口型</button><button id="stopVoice" disabled>停止</button><p id="audioStatus">原作语音 · 初次见面</p></section>
+<p id="error" role="alert"></p><p class="note">独立 2.5D 网页 demo · 非 Cubism 原生模型<br>本轮复用已有分层，尚未运行 See-through。<br><a href="https://github.com/852wa/Anime2.5DRig" target="_blank" rel="noreferrer">基于 Anime2.5DRig ↗</a></p>
+</aside></main><audio id="audio" preload="auto" src="/voice/pleased_to_meet_you.ogg"></audio><script src="demo.js"></script></body></html>

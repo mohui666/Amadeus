@@ -1,0 +1,10 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Kurisu-original-v1.moc3",
+		"Textures": [
+			"Kurisu-original-v1.2048/texture_00.png"
+		],
+		"DisplayInfo": "Kurisu-original-v1.cdi3.json"
+	}
+}

@@ -227,7 +227,7 @@ public class MainActivity extends Activity {
 
     private final class PhoneBridge {
         private AtomicFile recordFile(String key) {
-            if (!key.matches("history|memories|audio-[a-fA-F0-9-]{36}")) throw new IllegalArgumentException("本地记录名称无效");
+            if (!key.matches("settings|history|memories|audio-[a-fA-F0-9-]{36}")) throw new IllegalArgumentException("本地记录名称无效");
             return new AtomicFile(new File(getFilesDir(), "amadeus-" + key + ".json"));
         }
 

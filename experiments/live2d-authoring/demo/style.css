@@ -1,0 +1,4 @@
+.stage{min-height:650px;height:min(790px,calc(100dvh - 180px))}
+#original{position:absolute;top:44px;left:50%;transform:translateX(-50%);height:calc(100% - 88px);max-width:calc(100% - 60px);object-fit:contain;object-position:top;z-index:0}
+#original[hidden]{display:none}.stage[data-compare=true] canvas{visibility:hidden}.stage-heading,.stage-caption{z-index:1}
+@media(max-width:750px){.stage{min-height:540px;height:min(72dvh,700px)}}

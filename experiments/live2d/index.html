@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Amadeus · Live2D 试验</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+<main>
+  <header><div><p class="eyebrow">AMADEUS / LIVE2D STUDY</p><h1>让她转过头来看你。</h1><p class="intro">红莉栖模型 · 连续转头、表情与语音口型</p></div><a href="http://127.0.0.1:3010/animation-phase1/index.html">查看阶段一 ↗</a></header>
+  <div class="workspace">
+    <section class="stage" id="stage" aria-label="Live2D 人物画面">
+      <div class="stage-heading"><span>牧濑 红莉栖</span><span id="state" role="status">正在加载模型…</span></div>
+      <canvas id="portrait" aria-label="红莉栖 Live2D 模型"></canvas>
+      <div class="stage-caption"><span id="caption">在画面内移动鼠标，或用手指拖动，让她看向你。</span><span>LIVE2D</span></div>
+    </section>
+    <aside aria-label="模型控制">
+      <h2>试试动作</h2>
+      <p class="hint">观察转头时眼睛、鼻子、头发与衣领的相对变化。</p>
+      <div class="buttons"><button id="demo" class="primary" disabled>▶ 播放动作演示</button><button id="voice" disabled>播放原作语音</button><button id="pause" disabled>暂停</button><button id="reset" disabled>复位</button><button id="blink" disabled>眨眼一次</button></div>
+      <p class="hint" id="audio-status">原作语音 · 初次见面</p>
+      <div class="divider"></div>
+      <h2>表情</h2>
+      <div class="expressions" id="expressions"><button data-emotion="neutral" aria-pressed="true" disabled>平静</button><button data-emotion="happy" aria-pressed="false" disabled>微笑</button><button data-emotion="angry" aria-pressed="false" disabled>生气</button><button data-emotion="sad" aria-pressed="false" disabled>难过</button><button data-emotion="surprised" aria-pressed="false" disabled>惊讶</button><button data-emotion="blush" aria-pressed="false" disabled>脸红</button></div>
+      <div class="divider"></div>
+      <h2>动作幅度</h2>
+      <label>左右转头 <output id="yaw-value">0°</output><input id="yaw" type="range" min="-25" max="25" value="0" step="1" disabled></label>
+      <label>抬头 / 低头 <output id="pitch-value">0°</output><input id="pitch" type="range" min="-18" max="18" value="0" step="1" disabled></label>
+      <label>张嘴程度 <output id="mouth-value">0%</output><input id="mouth" type="range" min="0" max="1" value="0" step=".01" disabled></label>
+      <label class="check"><input id="follow" type="checkbox" checked>跟随鼠标 / 手指</label>
+      <label class="check"><input id="breathing" type="checkbox" checked>自然呼吸与发丝摆动</label>
+      <label class="check"><input id="fullbody" type="checkbox">查看全身</label>
+      <p id="error" role="alert"></p>
+      <p class="source">使用社区提供的红莉栖模型进行本机试验。模型画风与原版游戏立绘不同。<a href="https://github.com/FrancescoCaracciolo/Amadeus#1-live2d-avatar" target="_blank" rel="noreferrer">模型来源 ↗</a></p>
+    </aside>
+  </div>
+  <footer>独立 Live2D testcase · 使用模型自带的网格与物理参数</footer>
+</main>
+<audio id="audio" preload="auto" src="/voice/pleased_to_meet_you.ogg"></audio>
+<script src="/vendor/live2dcubismcore.min.js"></script><script src="/vendor/pixi.min.js"></script><script src="/vendor/cubism4.min.js"></script>
+<script type="module" src="./demo.js"></script>
+</body></html>

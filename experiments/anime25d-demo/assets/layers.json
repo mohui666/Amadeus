@@ -1,0 +1,98 @@
+{
+  "width": 940,
+  "height": 1674,
+  "layers": [
+    {
+      "name": "back hair_1",
+      "file": "layer-00.png"
+    },
+    {
+      "name": "neck",
+      "file": "layer-01.png"
+    },
+    {
+      "name": "topwear",
+      "file": "layer-02.png"
+    },
+    {
+      "name": "face",
+      "file": "layer-03.png"
+    },
+    {
+      "name": "eyewhite",
+      "file": "layer-04.png"
+    },
+    {
+      "name": "irides",
+      "file": "layer-05.png"
+    },
+    {
+      "name": "eyelash",
+      "file": "layer-06.png"
+    },
+    {
+      "name": "eyelash",
+      "file": "layer-07.png"
+    },
+    {
+      "name": "eyebrow",
+      "file": "layer-08.png"
+    },
+    {
+      "name": "eyewhite",
+      "file": "layer-09.png"
+    },
+    {
+      "name": "irides",
+      "file": "layer-10.png"
+    },
+    {
+      "name": "eyelash",
+      "file": "layer-11.png"
+    },
+    {
+      "name": "eyelash",
+      "file": "layer-12.png"
+    },
+    {
+      "name": "eyebrow",
+      "file": "layer-13.png"
+    },
+    {
+      "name": "eye_close",
+      "file": "layer-14.png"
+    },
+    {
+      "name": "eye_close",
+      "file": "layer-15.png"
+    },
+    {
+      "name": "mouth_close",
+      "file": "layer-16.png"
+    },
+    {
+      "name": "mouth_open_1",
+      "file": "layer-17.png"
+    },
+    {
+      "name": "mouth_open_2",
+      "file": "layer-18.png"
+    },
+    {
+      "name": "mouth_open_3",
+      "file": "layer-19.png"
+    },
+    {
+      "name": "front hair_1",
+      "file": "layer-20.png"
+    },
+    {
+      "name": "front hair_2",
+      "file": "layer-21.png"
+    },
+    {
+      "name": "front hair_3",
+      "file": "layer-22.png"
+    }
+  ]
+}

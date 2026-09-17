@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Amadeus · 原立绘 Live2D 试作</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="./style.css"></head>
+<body>
+<main>
+  <header><div><p class="eyebrow">AMADEUS / ORIGINAL PORTRAIT STUDY</p><h1>从原立绘开始，让她动起来。</h1><p class="intro">自制 Live2D 第一版 · 眨眼、开口、小幅侧头</p></div><a href="/">对比社区模型 ↗</a></header>
+  <div class="workspace">
+    <section class="stage" id="stage" aria-label="自制 Live2D 人物画面">
+      <div class="stage-heading"><span>牧濑 红莉栖</span><span id="state" role="status">正在加载模型…</span></div>
+      <canvas id="portrait" aria-label="自制红莉栖模型"></canvas>
+      <img id="original" src="/original/kurisu_normal1.png" alt="原版静态立绘" hidden>
+      <div class="stage-caption"><span id="caption">观察眼睛闭合、嘴角和脖子交界。</span><span>试作 01</span></div>
+    </section>
+    <aside aria-label="试作模型控制">
+      <h2>第一版动作</h2>
+      <div class="buttons"><button id="demo" class="primary" disabled>▶ 播放 12 秒演示</button><button id="blink" disabled>眨眼一次</button><button id="voice" disabled>播放原作语音</button><button id="pause" disabled>暂停</button><button id="reset" disabled>复位</button></div>
+      <p class="hint" id="audio-status">原作语音 · 初次见面</p>
+      <div class="divider"></div>
+      <h2>逐项检查</h2>
+      <label>侧头 <output id="tilt-value">0°</output><input id="tilt" type="range" min="-30" max="30" value="0" step="1" disabled></label>
+      <label>左眼开合 <output id="left-value">100%</output><input id="left" type="range" min="0" max="1" value="1" step=".01" disabled></label>
+      <label>右眼开合 <output id="right-value">100%</output><input id="right" type="range" min="0" max="1" value="1" step=".01" disabled></label>
+      <label>张嘴程度 <output id="mouth-value">0%</output><input id="mouth" type="range" min="0" max="1" value="0" step=".01" disabled></label>
+      <label class="check"><input id="auto-blink" type="checkbox" checked disabled>自动眨眼</label>
+      <label class="check"><input id="auto-sway" type="checkbox" checked disabled>轻微侧头</label>
+      <label class="check"><input id="compare" type="checkbox" disabled>显示原版静态立绘</label>
+      <p id="error" role="alert"></p>
+      <p class="source">这版由原立绘拆分素材，在 Cubism Editor 中绑定。闭眼线和口型仍较粗，头发暂时随头整体移动；尚未制作视线、眉毛表情与发丝物理。</p>
+    </aside>
+  </div>
+  <footer>独立试作 · 5 个网格 · 已保留 PSD 和 Cubism 工程</footer>
+</main>
+<audio id="audio" preload="auto" src="/voice/pleased_to_meet_you.ogg"></audio>
+<script src="/vendor/live2dcubismcore.min.js"></script><script src="/vendor/pixi.min.js"></script><script src="/vendor/cubism4.min.js"></script><script type="module" src="./demo.js"></script>
+</body></html>

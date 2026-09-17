@@ -1,0 +1,382 @@
+{
+  "canvas": [
+    940,
+    1674
+  ],
+  "layers": [
+    "Body",
+    "Neck",
+    "HeadBase",
+    "HairBackFill",
+    "EyeWhiteL",
+    "EyeBallL",
+    "EyeLowerL",
+    "EyeUpperL",
+    "BrowL",
+    "EyeWhiteR",
+    "EyeBallR",
+    "EyeLowerR",
+    "EyeUpperR",
+    "BrowR",
+    "MouthCavity",
+    "MouthTeeth",
+    "MouthTongue",
+    "MouthUpper",
+    "MouthLower",
+    "MouthClosed",
+    "HairFrontL",
+    "HairFrontR",
+    "HairBangs"
+  ],
+  "placement": [
+    {
+      "name": "Neck",
+      "sheet": "neck",
+      "cell": [
+        0,
+        0
+      ],
+      "scale": 0.3339382940108893,
+      "position": [
+        377,
+        566
+      ],
+      "size": [
+        184,
+        158
+      ]
+    },
+    {
+      "name": "HeadBase",
+      "source": "head-base.png",
+      "scale": 1,
+      "translation": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "EyeWhiteL",
+      "sheet": "eyes",
+      "cell": [
+        0,
+        2
+      ],
+      "scale": 0.3393939393939394,
+      "position": [
+        288,
+        421
+      ],
+      "size": [
+        112,
+        62
+      ]
+    },
+    {
+      "name": "EyeBallL",
+      "sheet": "eyes",
+      "cell": [
+        0,
+        3
+      ],
+      "scale": 0.29553264604810997,
+      "position": [
+        300,
+        410
+      ],
+      "size": [
+        86,
+        82
+      ]
+    },
+    {
+      "name": "EyeLowerL",
+      "sheet": "eyes",
+      "cell": [
+        0,
+        4
+      ],
+      "scale": 0.33948339483394835,
+      "position": [
+        297,
+        478
+      ],
+      "size": [
+        92,
+        14
+      ]
+    },
+    {
+      "name": "EyeUpperL",
+      "sheet": "eyes",
+      "cell": [
+        0,
+        1
+      ],
+      "scale": 0.33171912832929784,
+      "position": [
+        275,
+        407
+      ],
+      "size": [
+        137,
+        60
+      ]
+    },
+    {
+      "name": "BrowL",
+      "sheet": "eyes",
+      "cell": [
+        0,
+        0
+      ],
+      "scale": 0.3052959501557632,
+      "position": [
+        290,
+        368
+      ],
+      "size": [
+        98,
+        19
+      ]
+    },
+    {
+      "name": "EyeWhiteR",
+      "sheet": "eyes",
+      "cell": [
+        1,
+        2
+      ],
+      "scale": 0.3393939393939394,
+      "position": [
+        531,
+        421
+      ],
+      "size": [
+        112,
+        62
+      ]
+    },
+    {
+      "name": "EyeBallR",
+      "sheet": "eyes",
+      "cell": [
+        1,
+        3
+      ],
+      "scale": 0.296551724137931,
+      "position": [
+        543,
+        410
+      ],
+      "size": [
+        86,
+        82
+      ]
+    },
+    {
+      "name": "EyeLowerR",
+      "sheet": "eyes",
+      "cell": [
+        1,
+        4
+      ],
+      "scale": 0.34074074074074073,
+      "position": [
+        540,
+        478
+      ],
+      "size": [
+        92,
+        13
+      ]
+    },
+    {
+      "name": "EyeUpperR",
+      "sheet": "eyes",
+      "cell": [
+        1,
+        1
+      ],
+      "scale": 0.33910891089108913,
+      "position": [
+        518,
+        407
+      ],
+      "size": [
+        137,
+        63
+      ]
+    },
+    {
+      "name": "BrowR",
+      "sheet": "eyes",
+      "cell": [
+        1,
+        0
+      ],
+      "scale": 0.30625,
+      "position": [
+        533,
+        368
+      ],
+      "size": [
+        98,
+        19
+      ]
+    },
+    {
+      "name": "MouthCavity",
+      "sheet": "mouth",
+      "cell": [
+        0,
+        1
+      ],
+      "scale": 0.16791044776119404,
+      "position": [
+        443,
+        624
+      ],
+      "size": [
+        45,
+        16
+      ]
+    },
+    {
+      "name": "MouthTeeth",
+      "sheet": "mouth",
+      "cell": [
+        1,
+        1
+      ],
+      "scale": 0.15748031496062992,
+      "position": [
+        445,
+        625
+      ],
+      "size": [
+        40,
+        5
+      ]
+    },
+    {
+      "name": "MouthTongue",
+      "sheet": "mouth",
+      "cell": [
+        0,
+        2
+      ],
+      "scale": 0.16911764705882354,
+      "position": [
+        454,
+        632
+      ],
+      "size": [
+        23,
+        13
+      ]
+    },
+    {
+      "name": "MouthUpper",
+      "sheet": "mouth",
+      "cell": [
+        0,
+        0
+      ],
+      "scale": 0.21120689655172414,
+      "position": [
+        441,
+        622
+      ],
+      "size": [
+        49,
+        10
+      ]
+    },
+    {
+      "name": "MouthLower",
+      "sheet": "mouth",
+      "cell": [
+        1,
+        0
+      ],
+      "scale": 0.22613065326633167,
+      "position": [
+        443,
+        638
+      ],
+      "size": [
+        45,
+        5
+      ]
+    },
+    {
+      "name": "MouthClosed",
+      "sheet": "mouth",
+      "cell": [
+        1,
+        2
+      ],
+      "scale": 0.24120603015075376,
+      "position": [
+        441,
+        632
+      ],
+      "size": [
+        48,
+        7
+      ]
+    },
+    {
+      "name": "HairFrontL",
+      "source": "hair-left.png",
+      "scale": 0.78,
+      "translation": [
+        55,
+        0
+      ]
+    },
+    {
+      "name": "HairFrontR",
+      "source": "hair-right.png",
+      "scale": 0.92,
+      "translation": [
+        58,
+        -4
+      ]
+    },
+    {
+      "name": "HairBangs",
+      "source": "hair-bangs.png",
+      "scale": 0.98,
+      "translation": [
+        8,
+        0
+      ]
+    },
+    {
+      "name": "HairBangs",
+      "colorGain": [
+        0.9105263352394104,
+        1.0147058963775635,
+        1.7142857313156128
+      ]
+    },
+    {
+      "name": "HairFrontL",
+      "colorGain": [
+        1.0058479309082031,
+        1.1147540807724,
+        1.2777777910232544
+      ]
+    },
+    {
+      "name": "HairFrontR",
+      "colorGain": [
+        1.0211864709854126,
+        1.1333333253860474,
+        1.5833333730697632
+      ]
+    }
+  ]
+}

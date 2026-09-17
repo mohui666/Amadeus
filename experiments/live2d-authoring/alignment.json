@@ -1,0 +1,47 @@
+[
+  {
+    "name": "body",
+    "scale": 0.9987658122147746,
+    "translation": [
+      -0.9099027308488985,
+      2.0227353027767094
+    ],
+    "alignmentEvidence": 64
+  },
+  {
+    "name": "head",
+    "scale": 0.9990848507317364,
+    "translation": [
+      0.687066369197737,
+      0.45348193139625437
+    ],
+    "alignmentEvidence": 30
+  },
+  {
+    "name": "eye-left",
+    "scale": 0.8999999999999999,
+    "translation": [
+      17.200000000000017,
+      -82.19999999999993
+    ],
+    "alignmentEvidence": 0.0172
+  },
+  {
+    "name": "eye-right",
+    "scale": 0.74,
+    "translation": [
+      140.64,
+      96.89999999999998
+    ],
+    "alignmentEvidence": 0.028
+  },
+  {
+    "name": "mouth",
+    "scale": 0.8999999999999999,
+    "translation": [
+      43.400000000000034,
+      -59.59999999999991
+    ],
+    "alignmentEvidence": 0.0144
+  }
+]

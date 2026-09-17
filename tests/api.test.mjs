@@ -6,7 +6,7 @@ import { mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createAppServer } from '../server/index.mjs';
-import { defaults, readSettings, persistSettings } from '../src/config.js';
+import { defaults, readSettings, persistSettings, selectChatProvider, selectTtsProvider } from '../src/config.js';
 
 async function start(t, server) {
   server.listen(0, '127.0.0.1');
@@ -226,13 +226,60 @@ test('upstream HTTP errors are reported without exposing the supplied key', asyn
   assert.match(speechError, /语音服务鉴权失败/);
 });
 
-test('Modal speech with a cleared key explains session-only credentials before making a request', async t => {
+test('Modal speech with a cleared key explains how to save credentials before making a request', async t => {
   const url = await start(t, createAppServer());
   const response = await post(url, '/api/speech', { config: { tts: { provider: 'qwen-tts', baseUrl: 'https://example.modal.run/v1', model: 'kurisu', voice: 'kurisu', apiKey: '' } }, text: 'こんにちは。' });
   assert.equal(response.status, 400);
   const result = await response.json();
   assert.match(result.error.message, /尚未填写 Modal 语音 API Key/);
-  assert.match(result.error.message, /重新打开 App 后需重新填写/);
+  assert.match(result.error.message, /自动保存在此设备/);
+});
+
+test('settings and keys survive reload and protocol switching without crossing provider configurations', () => {
+  const store = new Map();
+  globalThis.localStorage = { getItem: key => store.get(key) ?? null, setItem: (key, value) => store.set(key, value) };
+  try {
+    let config = selectChatProvider(structuredClone(defaults), 'responses');
+    config.chat = { ...config.chat, baseUrl: 'https://chat.test/v1', model: 'custom', apiKey: 'chat-fixture' };
+    config = selectChatProvider(config, 'chatgpt');
+    config = selectChatProvider(config, config.chatApiProvider);
+    assert.equal(config.chat.apiKey, 'chat-fixture');
+    config.tts = { ...config.tts, provider: 'qwen-tts', baseUrl: 'https://voice.test/v1', model: 'kurisu', voice: 'kurisu', apiKey: 'tts-fixture', speed: 1.3 };
+    config = selectTtsProvider(config, 'elevenlabs');
+    assert.equal(config.tts.apiKey, '');
+    config = selectTtsProvider(config, 'openai');
+    assert.equal(config.tts.provider, 'qwen-tts');
+    assert.equal(config.tts.baseUrl, 'https://voice.test/v1');
+    config = selectTtsProvider(config, 'browser');
+    persistSettings(config);
+    config = selectTtsProvider(readSettings(), readSettings().ttsApiFormat);
+    assert.equal(config.tts.apiKey, 'tts-fixture');
+    assert.equal(config.tts.speed, 1.3);
+    assert.equal(config.chat.apiKey, 'chat-fixture');
+    config.stt.apiKey = 'stt-fixture';
+    config.tts.apiKey = '';
+    persistSettings(config);
+    assert.equal(readSettings().tts.apiKey, '');
+    assert.ok(!store.get('amadeus.settings').includes('tts-fixture'));
+    assert.equal(readSettings().stt.apiKey, 'stt-fixture');
+  } finally { delete globalThis.localStorage; }
+});
+
+test('Android settings use app records independently of service origins', () => {
+  let record = null;
+  globalThis.localStorage = { getItem: () => null };
+  globalThis.window = { AmadeusAndroid: {
+    readRecord: key => { assert.equal(key, 'settings'); return JSON.stringify({ value: record }); },
+    writeRecord: (key, value) => { assert.equal(key, 'settings'); record = value; return ''; },
+  } };
+  try {
+    const config = structuredClone(defaults);
+    config.tts.apiKey = 'native-fixture-key';
+    persistSettings(config);
+    assert.equal(readSettings().tts.apiKey, 'native-fixture-key');
+    window.AmadeusAndroid.writeRecord = () => '磁盘已满';
+    assert.throws(() => persistSettings(config), /磁盘已满/);
+  } finally { delete globalThis.localStorage; delete globalThis.window; }
 });
 
 test('stream errors and early EOF are not reported as successful completion', async t => {

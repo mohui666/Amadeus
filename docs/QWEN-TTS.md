@@ -31,7 +31,7 @@ npm run deploy:tts:modal
 
 Modal CLI 的部署凭据由官方程序保存在用户目录 `.modal.toml`，不是语音接口密钥。语音调用使用单独的 Proxy Token：在 Modal 工作区设置中创建，或在自己的终端执行 `.local/modal/venv/Scripts/python.exe -X utf8 -m modal workspace proxy-tokens create`。将输出的 `wk-…` 和 `ws-…` 用句点连接，作为 OpenAI 兼容 API Key；请求头为 `Authorization: Bearer wk-….ws-…`。[官方鉴权说明](https://modal.com/docs/guide/webhook-proxy-auth)
 
-应用声音页的高级设置可使用 `qwen-tts` 服务商、云端地址加 `/v1`、模型和声音 `kurisu`。API Key 仅填写在页面内存中，不写进客户端配置、导出记录或 APK。此次云端部署不自动改写已保存的声音设置，本机服务入口继续保留。
+应用声音页的高级设置选择「语音 API」和「OpenAI 兼容」格式，填写云端地址加 `/v1`、模型和声音 `kurisu`。已有 `qwen-tts` 配置继续保留其语言参数。API Key 与接口设置自动保存在此设备，Android 存入应用私有数据；不内置在 APK、不进入对话导出。此次云端部署不自动改写已保存的声音设置，本机服务入口继续保留。
 
 L40S 官方价格为 $0.000542/秒，约 $1.9512/GPU 小时，另计 CPU 和内存；容器加载、推理及保持温热期间均可能计费，缩容为 0 后没有 GPU 运行费。仍保留空闲 60 秒、最少 0 个容器，不常驻 GPU。价格以 [Modal 官方页面](https://modal.com/pricing) 为准。
 
